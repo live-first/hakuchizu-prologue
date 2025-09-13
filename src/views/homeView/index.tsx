@@ -6,7 +6,7 @@ export const HomeView = () => {
     return <div className='flex flex-col gap-4'>{children}</div>
   }
   return (
-    <div className='flex flex-col gap-12 pt-8 pb-80 px-1 md:px-6 bg-[#ffffff]'>
+    <div className='flex flex-col gap-12 pt-8 pb-80 px-1 md:px-6 bg-black'>
       <Section></Section>
     </div>
   )

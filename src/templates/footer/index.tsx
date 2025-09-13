@@ -11,7 +11,7 @@ export const Footer = (props: PropsWithChildren<FooterProps>) => {
     <div className='flex flex-col bg-krf-remon relative'>
       {children}
       {bottom}
-      <div className='flex pt-4 pb-1 w-full justify-center'>{copyright}</div>
+      <div className='flex pt-4 pb-1 w-full justify-center text-[#c4c4c4]'>{copyright}</div>
     </div>
   )
 }

@@ -18,7 +18,7 @@ export const Card = (props: CardProps) => {
         <div className='w-full h-[200px]'>
           <ImageContainer
             img={{
-              src: src ?? 'https://kurofes-dashin.com/pictures/kurofes-logo.png',
+              src: src ?? '',
               alt: alt ?? 'kurofes-logo',
             }}
             height='200px'
