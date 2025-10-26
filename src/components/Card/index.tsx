@@ -12,7 +12,7 @@ type CardProps = {
 export const Card = (props: CardProps) => {
   const { date, title, src, alt, hideImage = false } = props
   return (
-    <div className='flex flex-col pb-1 border-1 rounded-3xl shadow-xl hover:-translate-y-1'>
+    <div className='flex flex-col pb-1 border-1 shadow-xl hover:-translate-y-1'>
       {hideImage ? (
         <></>
       ) : (

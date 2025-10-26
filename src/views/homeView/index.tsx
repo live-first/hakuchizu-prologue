@@ -158,7 +158,7 @@ export const HomeView = () => {
           <p>イベント出演のお誘い / 取材 / 仕事依頼 /</p>
           <p>その他のお問い合わせは下記までお願いします。</p>
         </div>
-        <Link href='/member'>
+        <Link href='/contact'>
           <span className='flex px-20 py-4 mt-8 border bg-black hover:bg-white hover:text-black hover:border'>
             お問い合わせはこちら
           </span>
