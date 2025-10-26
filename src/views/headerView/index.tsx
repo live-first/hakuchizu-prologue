@@ -4,8 +4,11 @@ import { Img } from '@/components/Image'
 import { cn } from '@/components/utils'
 import { Header } from '@/templates/header'
 import { useRouter } from 'next/navigation'
-import { FaHeart } from 'react-icons/fa'
 import logo from '@/image/ワンダーウィード天ロゴ.jpg'
+import x_logo from '@/image/X.svg'
+import tiktok_logo from '@/image/TikTok.svg'
+import youtube_logo from '@/image/Youtube.png'
+import Link from 'next/link'
 
 export const HeaderView = ({ url }: { url?: string }) => {
   const Logo = () => {
@@ -43,15 +46,10 @@ export const HeaderView = ({ url }: { url?: string }) => {
     const { label, url } = props
     return (
       <button
-        className='flex flex-col py-2 gap-1 font-bold items-center rounded-full hover:cursor-pointer bg-white p-1 text-fuchsia-400'
+        className='flex flex-col py-2 gap-1 font-bold items-center hover:cursor-pointer'
         onClick={() => router.push(url)}
       >
-        <div className='flex'>
-          <span className='h-full self-center'>
-            <FaHeart />
-          </span>
-          {label}
-        </div>
+        <div className='flex'>{label}</div>
       </button>
     )
   }
@@ -80,6 +78,24 @@ export const HeaderView = ({ url }: { url?: string }) => {
           <HeaderSpCell label='MEMBER' url='/member' />
           <HeaderSpCell label='VIDEO' url='/video' />
           <HeaderSpCell label='CONTACT' url='/contact' />
+          <Img src={logo.src} />
+          <div className='flex justify-center content-center gap-12'>
+            <Link href='https://x.com/wonder__weed' className='w-1/6'>
+              <Img src={x_logo.src} alt='x-logo' />
+            </Link>
+            {/* <Link href='' className='w-1/3'>
+            <Img src={insta_logo.src} alt='insta-logo' />
+          </Link> */}
+            <Link href='https://www.tiktok.com/@wonderweedten_official' className='w-1/6'>
+              <Img src={tiktok_logo.src} alt='tiktok-logo' />
+            </Link>
+            <Link
+              href='https://youtube.com/@wonderweedten_official?si=63f0jF1x_idz0O2K'
+              className='w-1/6'
+            >
+              <Img src={youtube_logo.src} alt='youtube-logo' />
+            </Link>
+          </div>
         </div>
       }
     />

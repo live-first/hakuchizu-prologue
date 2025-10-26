@@ -47,7 +47,7 @@ export const Header = (props: HeaderProps) => {
         <span></span>
       </button>
       {isShow ? (
-        <div className='absolute top-0 left-0 w-dvw h-dvh bg-menu-sp md:hidden overflow-scroll pb-4'>
+        <div className='absolute top-0 left-0 w-dvw h-dvh bg-black md:hidden overflow-scroll pb-4'>
           {spView}
         </div>
       ) : (

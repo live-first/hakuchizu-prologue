@@ -43,7 +43,7 @@ export const HomeView = () => {
         <Heading tag={2} label='Schedule' />
         <iframe
           src='https://calendar.google.com/calendar/embed?height=800&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;src=OXVva2M4cmxnMnY0MDV0Z2E2b2dpYTFuaGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%2381910B&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0'
-          width='1200'
+          width='100%'
           height='800'
           scrolling='no'
         ></iframe>
