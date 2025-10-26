@@ -17,8 +17,12 @@ export const MemberView = () => {
         <div className='grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-6'>
           <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full'>
-              <Img src={shirakawa_yumeka.src} alt='白川ゆめか' />
-              <div className='py-2 text-2xl font-bold'>白川ゆめか</div>
+              <Img
+                src={shirakawa_yumeka.src}
+                alt='白川ゆめか'
+                cName='duration-700 hover:scale-105'
+              />
+              <div className='pt-6 pb-2 text-2xl font-bold'>白川ゆめか</div>
               <div>
                 <p>生年月日：2003年3月22日</p>
                 <p>出身地：埼玉県</p>
@@ -32,8 +36,12 @@ export const MemberView = () => {
           </SlideUpAnimation>
           <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full'>
-              <Img src={shinonome_shiori.src} alt='東雲しおり' />
-              <div className='py-2 text-2xl font-bold'>東雲しおり</div>
+              <Img
+                src={shinonome_shiori.src}
+                alt='東雲しおり'
+                cName='duration-700 hover:scale-105'
+              />
+              <div className='pt-6 pb-2 text-2xl font-bold'>東雲しおり</div>
               <div>
                 <p>生年月日：1997年10月18日</p>
                 <p>出身地：群馬県</p>
@@ -47,8 +55,8 @@ export const MemberView = () => {
           </SlideUpAnimation>
           <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full'>
-              <Img src={sendo_suzuka.src} alt='千堂すずか' />
-              <div className='py-2 text-2xl font-bold'>千堂すずか</div>
+              <Img src={sendo_suzuka.src} alt='千堂すずか' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>千堂すずか</div>
               <div>
                 <p>生年月日：2002年7月15日</p>
                 <p>出身地：神奈川県</p>
@@ -62,8 +70,8 @@ export const MemberView = () => {
           </SlideUpAnimation>
           <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full'>
-              <Img src={kosaka_kurumi.src} alt='神坂くるみ' />
-              <div className='py-2 text-2xl font-bold'>神坂くるみ</div>
+              <Img src={kosaka_kurumi.src} alt='神坂くるみ' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>神坂くるみ</div>
               <div>
                 <p>生年月日：2000年7月4日</p>
                 <p>出身地：徳島県</p>
@@ -77,8 +85,8 @@ export const MemberView = () => {
           </SlideUpAnimation>
           <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full'>
-              <Img src={nakajo_airi.src} alt='中條あいり' />
-              <div className='py-2 text-2xl font-bold'>中條あいり</div>
+              <Img src={nakajo_airi.src} alt='中條あいり' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>中條あいり</div>
               <div>
                 <p>生年月日：2004年3月25日</p>
                 <p>出身地：東京都</p>
@@ -94,8 +102,8 @@ export const MemberView = () => {
           </SlideUpAnimation>
           <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full'>
-              <Img src={hane_kotomi.src} alt='羽根ことみ' />
-              <div className='py-2 text-2xl font-bold'>羽根ことみ</div>
+              <Img src={hane_kotomi.src} alt='羽根ことみ' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>羽根ことみ</div>
               <div>
                 <p>生年月日：1998年11月26日</p>
                 <p>出身地：埼玉県</p>
@@ -111,8 +119,8 @@ export const MemberView = () => {
           </SlideUpAnimation>
           <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full'>
-              <Img src={arisu_nanase.src} alt='有栖ななせ' />
-              <div className='py-2 text-2xl font-bold'>有栖ななせ</div>
+              <Img src={arisu_nanase.src} alt='有栖ななせ' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>有栖ななせ</div>
               <div>
                 <p>生年月日：</p>
                 <p>出身地：</p>

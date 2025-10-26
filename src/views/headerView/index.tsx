@@ -69,7 +69,7 @@ export const HeaderView = ({ url }: { url?: string }) => {
             isBorder
           />
           <HeaderPcCell label='MEMBER' url='/member' active={url === 'member'} isBorder />
-          <HeaderPcCell label='VIDEO' url='/video' active={url === 'music'} isBorder />
+          <HeaderPcCell label='VIDEO' url='/video' active={url === 'video'} isBorder />
           <HeaderPcCell label='CONTACT' url='/contact' active={url === 'contact'} />
         </div>
       }

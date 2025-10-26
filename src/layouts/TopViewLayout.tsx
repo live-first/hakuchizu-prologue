@@ -23,7 +23,7 @@ export const TopViewLayout = (props: LayoutProps) => {
         {top && <div className='flex w-full h-full relative'>{top}</div>}
         {isOverlay ? (
           <div className='absolute top-0 left-0 w-full h-full overflow-scroll z-20'>
-            <div className='mt-[100vh] bg-stripe'>{main}</div>
+            <div className='mt-[100vh]'>{main}</div>
           </div>
         ) : (
           <div className='flex flex-col'>{main}</div>

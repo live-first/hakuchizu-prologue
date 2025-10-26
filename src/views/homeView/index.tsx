@@ -13,12 +13,16 @@ import nakajo_airi from '@/image/中條あいり.jpg'
 import shinonome_shiori from '@/image/東雲しおり.jpg'
 import shirakawa_yumeka from '@/image/白川ゆめか.jpg'
 import arisu_nanase from '@/image/有栖ななせ.jpg'
+import x_logo from '@/image/X.svg'
+import tiktok_logo from '@/image/TikTok.svg'
+import youtube_logo from '@/image/Youtube.png'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Img } from '@/components/Image'
+import { Container } from '@mui/material'
 
 export const HomeView = () => {
   const Section = ({ children }: PropsWithChildren) => {
@@ -117,6 +121,40 @@ export const HomeView = () => {
         <Link href='/member'>
           <span className='flex px-20 py-4 mt-8 border bg-black hover:bg-white hover:text-black hover:border'>
             VIEW All
+          </span>
+        </Link>
+      </Section>
+      <Section>
+        <Heading tag={2} label='SNS' />
+        <Container maxWidth='sm'>
+          <div className='flex justify-center content-center gap-12'>
+            <Link href='https://x.com/wonder__weed' className='w-1/6'>
+              <Img src={x_logo.src} alt='x-logo' />
+            </Link>
+            {/* <Link href='' className='w-1/3'>
+            <Img src={insta_logo.src} alt='insta-logo' />
+          </Link> */}
+            <Link href='https://www.tiktok.com/@wonderweedten_official' className='w-1/6'>
+              <Img src={tiktok_logo.src} alt='tiktok-logo' />
+            </Link>
+            <Link
+              href='https://youtube.com/@wonderweedten_official?si=63f0jF1x_idz0O2K'
+              className='w-1/6'
+            >
+              <Img src={youtube_logo.src} alt='youtube-logo' />
+            </Link>
+          </div>
+        </Container>
+      </Section>
+      <Section>
+        <Heading tag={2} label='CONTACT' />
+        <div className='flex flex-col gap-4 text-center pt-4'>
+          <p>イベント出演のお誘い / 取材 / 仕事依頼 /</p>
+          <p>その他のお問い合わせは下記までお願いします。</p>
+        </div>
+        <Link href='/member'>
+          <span className='flex px-20 py-4 mt-8 border bg-black hover:bg-white hover:text-black hover:border'>
+            お問い合わせはこちら
           </span>
         </Link>
       </Section>
