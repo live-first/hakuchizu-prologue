@@ -8,6 +8,10 @@ import nakajo_airi from '@/image/中條あいり.jpg'
 import shinonome_shiori from '@/image/東雲しおり.jpg'
 import shirakawa_yumeka from '@/image/白川ゆめか.jpg'
 import arisu_nanase from '@/image/有栖ななせ.jpg'
+import x_logo from '@/image/X.svg'
+import tiktok_logo from '@/image/TikTok.svg'
+import insta_logo from '@/image/Instagram.svg'
+import Link from 'next/link'
 
 export const MemberView = () => {
   return (
@@ -32,6 +36,17 @@ export const MemberView = () => {
                 <p>趣味：歌うこと</p>
                 <p>特技：誕生日を当てる／ドッヂボールの逃げ</p>
               </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='https://x.com/yumeka_322' className='w-1/8'>
+                  <Img src={x_logo.src} />
+                </Link>
+                <Link href='https://www.tiktok.com/@yumememeeen?' className='w-1/8'>
+                  <Img src={tiktok_logo.src} />
+                </Link>
+                <Link href='https://www.instagram.com/322choko/' className='w-1/7'>
+                  <Img src={insta_logo.src} />
+                </Link>
+              </div>
             </div>
           </SlideUpAnimation>
           <SlideUpAnimation>
@@ -51,6 +66,17 @@ export const MemberView = () => {
                 <p>趣味：読書／人の写真を撮ること</p>
                 <p>特技：フランス語／英語／アルトサックス／ダンス</p>
               </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='https://x.com/oshirin_snnm' className='w-1/8'>
+                  <Img src={x_logo.src} />
+                </Link>
+                <Link href='' className='w-1/8'>
+                  <Img src={tiktok_logo.src} />
+                </Link>
+                <Link href='https://www.instagram.com/oshirin_snnm/' className='w-1/7'>
+                  <Img src={insta_logo.src} />
+                </Link>
+              </div>
             </div>
           </SlideUpAnimation>
           <SlideUpAnimation>
@@ -66,6 +92,17 @@ export const MemberView = () => {
                 <p>趣味：アニメ、アイドル</p>
                 <p>特技：お菓子作り</p>
               </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='' className='w-1/8'>
+                  <Img src={x_logo.src} />
+                </Link>
+                <Link href='' className='w-1/8'>
+                  <Img src={tiktok_logo.src} />
+                </Link>
+                <Link href='' className='w-1/7'>
+                  <Img src={insta_logo.src} />
+                </Link>
+              </div>
             </div>
           </SlideUpAnimation>
           <SlideUpAnimation>
@@ -80,6 +117,17 @@ export const MemberView = () => {
                 <p>身長：161cm</p>
                 <p>趣味：歌、焼肉屋さん巡り、旅行</p>
                 <p>特技：歌</p>
+              </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='' className='w-1/8'>
+                  <Img src={x_logo.src} />
+                </Link>
+                <Link href='' className='w-1/8'>
+                  <Img src={tiktok_logo.src} />
+                </Link>
+                <Link href='' className='w-1/7'>
+                  <Img src={insta_logo.src} />
+                </Link>
               </div>
             </div>
           </SlideUpAnimation>
@@ -98,6 +146,17 @@ export const MemberView = () => {
                 <p>好きな食べ物：アイス</p>
                 <p>子供の頃の夢：アンパンマン</p>
               </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='' className='w-1/8'>
+                  <Img src={x_logo.src} />
+                </Link>
+                <Link href='' className='w-1/8'>
+                  <Img src={tiktok_logo.src} />
+                </Link>
+                <Link href='' className='w-1/7'>
+                  <Img src={insta_logo.src} />
+                </Link>
+              </div>
             </div>
           </SlideUpAnimation>
           <SlideUpAnimation>
@@ -115,6 +174,17 @@ export const MemberView = () => {
                 <p>好きな食べ物：トマト</p>
                 <p>子供の頃の夢：絵描きさん</p>
               </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='' className='w-1/8'>
+                  <Img src={x_logo.src} />
+                </Link>
+                <Link href='' className='w-1/8'>
+                  <Img src={tiktok_logo.src} />
+                </Link>
+                <Link href='' className='w-1/7'>
+                  <Img src={insta_logo.src} />
+                </Link>
+              </div>
             </div>
           </SlideUpAnimation>
           <SlideUpAnimation>
@@ -131,6 +201,17 @@ export const MemberView = () => {
                 <p>特技：</p>
                 <p>好きな食べ物：</p>
                 <p>子供の頃の夢：</p>
+              </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='' className='w-1/8'>
+                  <Img src={x_logo.src} />
+                </Link>
+                <Link href='' className='w-1/8'>
+                  <Img src={tiktok_logo.src} />
+                </Link>
+                <Link href='' className='w-1/7'>
+                  <Img src={insta_logo.src} />
+                </Link>
               </div>
             </div>
           </SlideUpAnimation>
