@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Provider from './Provider'
 
 export const metadata: Metadata = {
   title: 'ワンダーウィード 天',
@@ -35,7 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   )
 }
