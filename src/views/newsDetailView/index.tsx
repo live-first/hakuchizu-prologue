@@ -19,7 +19,7 @@ export const NewsDetailView = (props: { id: string | number }) => {
         <div className='flex flex-col py-24'>
           <div
             dangerouslySetInnerHTML={{
-              __html: `${news.contents}`,
+              __html: `${news.content}`,
             }}
           />
         </div>

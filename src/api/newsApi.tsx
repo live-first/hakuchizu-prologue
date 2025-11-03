@@ -1,7 +1,7 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import { NewsType } from '@/domain/news'
+import { NewsContentsType, NewsType } from '@/domain/news'
 import { client } from './microApi'
 
 export const useNewsApi = (id?: string) => {
@@ -17,7 +17,7 @@ export const useNewsApi = (id?: string) => {
   const getDetail = useQuery({
     queryKey: ['news', id],
     queryFn: async () => {
-      return await client.getListDetail<NewsType>({ endpoint: 'news', contentId })
+      return await client.getListDetail<NewsContentsType>({ endpoint: 'news', contentId })
     },
   })
 

@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [new URL('https://sekigahara.live-first.info/**')],
     unoptimized: true,
   },
-  output: 'export',
+  // output: 'export',
   trailingSlash: true,
 }
 

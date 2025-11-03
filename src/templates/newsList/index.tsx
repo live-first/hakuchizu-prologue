@@ -2,38 +2,30 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { useNewsApi } from '@/api/newsApi'
+import { NewsContentsType } from '@/domain/news'
+import { formatDate } from '@/utils/stringUtils'
 
-export const NewsList = () => {
-  const { getNews } = useNewsApi()
+type NewsListProps = {
+  news: NewsContentsType[]
+  max?: number
+}
 
-  // const scrollTop = (): number => {
-  //   return Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop)
-  // }
-
-  // useEffect(() => {
-  //   //表示データを抽出
-  //   setDisplayedItems(newsList.slice((page - 1) * max, page * max))
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
-
-  // const handleChange = (event: ChangeEvent<unknown>, page: number) => {
-  //   setPage(page)
-  //   setDisplayedItems(newsList.slice((page - 1) * max, page * max))
-  //   scrollTop()
-  // }
+export const NewsList = (props: NewsListProps) => {
+  const { news, max = news.length } = props
 
   return (
     <div className='w-full'>
       <div className='grid grid-cols-2 sm:grid-cols-3 gap-2'>
-        {getNews.data?.contents.map((data, index) => {
-          return (
+        {news?.map((data, index) => {
+          return index < max ? (
             <Link href={`/news/${data.id}`} key={index}>
               <div>
-                <div>{data.publishedAt}</div>
+                <div>{formatDate(data.publishedAt, 'YYYY/MM/DD')}</div>
                 <div>{data.title}</div>
               </div>
             </Link>
+          ) : (
+            <></>
           )
         })}
       </div>
