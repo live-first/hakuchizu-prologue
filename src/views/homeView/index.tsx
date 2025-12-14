@@ -7,12 +7,12 @@ import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import YouTube from 'react-youtube'
 import hane_kotomi from '@/image/羽根ことみ.jpg'
-import kosaka_kurumi from '@/image/神坂くるみ.jpg'
 import sendo_suzuka from '@/image/千堂すずか.jpg'
 import nakajo_airi from '@/image/中條あいり.jpg'
 import shinonome_shiori from '@/image/東雲しおり.jpg'
 import shirakawa_yumeka from '@/image/白川ゆめか.jpg'
 import arisu_nanase from '@/image/有栖ななせ.jpg'
+import yuzuki_reia from '@/image/悠月れいあ.jpg'
 import x_logo from '@/image/X.svg'
 import tiktok_logo from '@/image/TikTok.svg'
 import youtube_logo from '@/image/Youtube.png'
@@ -126,11 +126,6 @@ export const HomeView = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href='/member#神坂くるみ'>
-                <Img src={kosaka_kurumi.src} alt='神坂くるみ' />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
               <Link href='/member#中條あいり'>
                 <Img src={nakajo_airi.src} alt='中條あいり' />
               </Link>
@@ -143,6 +138,11 @@ export const HomeView = () => {
             <SwiperSlide>
               <Link href='/member#有栖ななせ'>
                 <Img src={arisu_nanase.src} alt='有栖ななせ' />
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Link href='/member#悠月れいあ'>
+                <Img src={yuzuki_reia.src} alt='悠月れいあ' />
               </Link>
             </SwiperSlide>
           </Swiper>

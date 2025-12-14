@@ -2,7 +2,7 @@ import SlideUpAnimation from '@/components/animation/slideUpAnimation'
 import { Heading } from '@/components/Heading'
 import { Img } from '@/components/Image'
 import hane_kotomi from '@/image/羽根ことみ.jpg'
-import kosaka_kurumi from '@/image/神坂くるみ.jpg'
+import yuzuki_reia from '@/image/悠月れいあ.jpg'
 import sendo_suzuka from '@/image/千堂すずか.jpg'
 import nakajo_airi from '@/image/中條あいり.jpg'
 import shinonome_shiori from '@/image/東雲しおり.jpg'
@@ -106,32 +106,6 @@ export const MemberView = () => {
             </div>
           </SlideUpAnimation>
           <SlideUpAnimation>
-            <div className='flex flex-col p-1 md:p-3 w-full' id='神坂くるみ'>
-              <Img src={kosaka_kurumi.src} alt='神坂くるみ' cName='duration-700 hover:scale-105' />
-              <div className='pt-6 pb-2 text-2xl font-bold'>神坂くるみ</div>
-              <div>
-                <p>生年月日：2000年7月4日</p>
-                <p>出身地：徳島県</p>
-                <p>担当カラー：ピンク</p>
-                <p>血液型:O型</p>
-                <p>身長：161cm</p>
-                <p>趣味：歌、焼肉屋さん巡り、旅行</p>
-                <p>特技：歌</p>
-              </div>
-              <div className='flex justify-center gap-8 pt-2'>
-                <Link href='' className='w-1/8'>
-                  <Img src={x_logo.src} />
-                </Link>
-                <Link href='' className='w-1/8'>
-                  <Img src={tiktok_logo.src} />
-                </Link>
-                <Link href='' className='w-1/7'>
-                  <Img src={insta_logo.src} />
-                </Link>
-              </div>
-            </div>
-          </SlideUpAnimation>
-          <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full' id='中條あいり'>
               <Img src={nakajo_airi.src} alt='中條あいり' cName='duration-700 hover:scale-105' />
               <div className='pt-6 pb-2 text-2xl font-bold'>中條あいり</div>
@@ -201,6 +175,32 @@ export const MemberView = () => {
                 <p>特技：</p>
                 <p>好きな食べ物：</p>
                 <p>子供の頃の夢：</p>
+              </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='' className='w-1/8'>
+                  <Img src={x_logo.src} />
+                </Link>
+                <Link href='' className='w-1/8'>
+                  <Img src={tiktok_logo.src} />
+                </Link>
+                <Link href='' className='w-1/7'>
+                  <Img src={insta_logo.src} />
+                </Link>
+              </div>
+            </div>
+          </SlideUpAnimation>
+          <SlideUpAnimation>
+            <div className='flex flex-col p-1 md:p-3 w-full' id='悠月れいあ'>
+              <Img src={yuzuki_reia.src} alt='悠月れいあ' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>悠月れいあ</div>
+              <div>
+                <p>生年月日：</p>
+                <p>出身地：</p>
+                <p>担当カラー：ピンク</p>
+                <p>血液型:</p>
+                <p>身長：</p>
+                <p>趣味：</p>
+                <p>特技：</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='' className='w-1/8'>
