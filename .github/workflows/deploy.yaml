@@ -8,11 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest # 実行するOSを指定
-    env: # GitHub Secretsから取得した内容で環境変数を設定
-      SSH_HOST: ${{ secrets.SSH_HOST }}
-      SSH_PORT: ${{ secrets.SSH_PORT }}
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
 
     steps:
       - name: Checkout
