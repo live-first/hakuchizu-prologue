@@ -33,5 +33,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           source: 'out/*'
-          target: live-first.info/public_html/test1.live-first.info/
+          target: '/home/xs206850/live-first.info/public_html/test1.live-first.info/'
           strip_components: 1
