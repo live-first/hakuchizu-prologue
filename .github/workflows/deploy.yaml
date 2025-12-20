@@ -1,0 +1,37 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main # mainブランチにpushされたときに実行
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # 実行するOSを指定
+    env: # GitHub Secretsから取得した内容で環境変数を設定
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+
+    steps:
+      # コードを取得
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # SSH接続用キーファイルを設定
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p $SSH_PORT -H $SSH_HOST >> ~/.ssh/known_hosts
+
+      # SSH接続を行い、Xserver上でpullしてデプロイを行う
+      - name: Deploy to server
+        run: |
+          yarn build
+          ssh -p $SSH_PORT $SSH_USERNAME@$SSH_HOST << 'EOF'
+            cd live-first.info/public_html/test1.live-first.info/ || exit
+            git pull origin main || exit
+          EOF
