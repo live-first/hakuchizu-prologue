@@ -15,23 +15,28 @@ jobs:
       SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
 
     steps:
-      # コードを取得
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # SSH接続用キーファイルを設定
-      - name: Set up SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -p $SSH_PORT -H $SSH_HOST >> ~/.ssh/known_hosts
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
 
-      # SSH接続を行い、Xserver上でpullしてデプロイを行う
-      - name: Deploy to server
-        run: |
-          yarn build
-          ssh -p $SSH_PORT $SSH_USERNAME@$SSH_HOST << 'EOF'
-            cd live-first.info/public_html/test1.live-first.info/ || exit
-            git pull origin main || exit
-          EOF
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Deploy to Xserver
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          source: 'out/*'
+          target: live-first.info/public_html/test1.live-first.info/
+          strip_components: 1
