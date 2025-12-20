@@ -21,18 +21,16 @@ export const HeaderView = ({ url }: { url?: string }) => {
     label: string
     url: string
     active?: boolean
-    isBorder?: boolean
   }
 
   const HeaderPcCell = (props: HeaderCellProps) => {
     const router = useRouter()
-    const { label, url, active, isBorder = false } = props
+    const { label, url, active } = props
     return (
       <button
         className={cn(
           'flex flex-col h-full font-bold  hover:text-[#ca9b52] py-1 px-4 text-krf-pink text-shadow-lg whitespace-nowrap',
           active ? 'text-[#ca9b52]' : 'hover:cursor-pointer',
-          isBorder ? 'border-r border-white' : '',
         )}
         onClick={() => router.push(url)}
       >
@@ -59,15 +57,18 @@ export const HeaderView = ({ url }: { url?: string }) => {
       logoArea={<Logo />}
       pcView={
         <div className='flex py-1 pl-12 pr-3 rounded-l-full'>
-          <HeaderPcCell label='HOME' url='/' active={url === 'home'} isBorder />
+          <HeaderPcCell label='HOME' url='/' active={url === 'home'} />
+          <span className='border-r border-white' />
           <HeaderPcCell
             label='GROUP PROFILE'
             url='/group-profile'
             active={url === 'group-profile'}
-            isBorder
           />
-          <HeaderPcCell label='MEMBER' url='/member' active={url === 'member'} isBorder />
-          <HeaderPcCell label='VIDEO' url='/video' active={url === 'video'} isBorder />
+          <span className='border-r border-white' />
+          <HeaderPcCell label='MEMBER' url='/member' active={url === 'member'} />
+          <span className='border-r border-white' />
+          <HeaderPcCell label='VIDEO' url='/video' active={url === 'video'} />
+          <span className='border-r border-white' />
           <HeaderPcCell label='CONTACT' url='/contact' active={url === 'contact'} />
         </div>
       }
@@ -79,7 +80,7 @@ export const HeaderView = ({ url }: { url?: string }) => {
           <HeaderSpCell label='VIDEO' url='/video' />
           <HeaderSpCell label='CONTACT' url='/contact' />
           <Img src={logo.src} />
-          <div className='flex justify-center content-center gap-12'>
+          <div className='flex justify-center content-center gap-12 items-center'>
             <Link href='https://x.com/wonder__weed' className='w-1/6'>
               <Img src={x_logo.src} alt='x-logo' />
             </Link>

@@ -70,9 +70,6 @@ export const MemberView = () => {
                 <Link href='https://x.com/oshirin_snnm' className='w-1/8'>
                   <Img src={x_logo.src} />
                 </Link>
-                <Link href='' className='w-1/8'>
-                  <Img src={tiktok_logo.src} />
-                </Link>
                 <Link href='https://www.instagram.com/oshirin_snnm/' className='w-1/7'>
                   <Img src={insta_logo.src} />
                 </Link>
@@ -93,13 +90,13 @@ export const MemberView = () => {
                 <p>特技：お菓子作り</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
-                <Link href='' className='w-1/8'>
+                <Link href='https://x.com/suzu_sinamon' className='w-1/8'>
                   <Img src={x_logo.src} />
                 </Link>
-                <Link href='' className='w-1/8'>
+                <Link href='https://www.tiktok.com/@10zikannsuimin' className='w-1/8'>
                   <Img src={tiktok_logo.src} />
                 </Link>
-                <Link href='' className='w-1/7'>
+                <Link href='https://www.instagram.com/osuzu_0715' className='w-1/7'>
                   <Img src={insta_logo.src} />
                 </Link>
               </div>
@@ -108,7 +105,7 @@ export const MemberView = () => {
           <SlideUpAnimation>
             <div className='flex flex-col p-1 md:p-3 w-full' id='中條あいり'>
               <Img src={nakajo_airi.src} alt='中條あいり' cName='duration-700 hover:scale-105' />
-              <div className='pt-6 pb-2 text-2xl font-bold'>中條あいり</div>
+              <div className='pt-6 pb-2 text-2xl font-bold'>中絛あいり</div>
               <div>
                 <p>生年月日：2004年3月25日</p>
                 <p>出身地：東京都</p>
@@ -121,13 +118,13 @@ export const MemberView = () => {
                 <p>子供の頃の夢：アンパンマン</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
-                <Link href='' className='w-1/8'>
+                <Link href='https://x.com/airi_wwt' className='w-1/8'>
                   <Img src={x_logo.src} />
                 </Link>
-                <Link href='' className='w-1/8'>
+                <Link href='https://www.tiktok.com/@airi.n03wwt' className='w-1/8'>
                   <Img src={tiktok_logo.src} />
                 </Link>
-                <Link href='' className='w-1/7'>
+                <Link href='https://www.instagram.com/airin._.0325' className='w-1/7'>
                   <Img src={insta_logo.src} />
                 </Link>
               </div>
@@ -149,13 +146,13 @@ export const MemberView = () => {
                 <p>子供の頃の夢：絵描きさん</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
-                <Link href='' className='w-1/8'>
+                <Link href='https://x.com/HaneKotomi' className='w-1/8'>
                   <Img src={x_logo.src} />
                 </Link>
-                <Link href='' className='w-1/8'>
+                <Link href='https://www.tiktok.com/@kotomihane' className='w-1/8'>
                   <Img src={tiktok_logo.src} />
                 </Link>
-                <Link href='' className='w-1/7'>
+                <Link href='https://www.instagram.com/minnto_koto' className='w-1/7'>
                   <Img src={insta_logo.src} />
                 </Link>
               </div>
@@ -177,13 +174,13 @@ export const MemberView = () => {
                 <p>子供の頃の夢：</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
-                <Link href='' className='w-1/8'>
+                <Link href='https://x.com/__nanase1230' className='w-1/8'>
                   <Img src={x_logo.src} />
                 </Link>
-                <Link href='' className='w-1/8'>
+                <Link href='https://www.tiktok.com/@nanase__nyan' className='w-1/8'>
                   <Img src={tiktok_logo.src} />
                 </Link>
-                <Link href='' className='w-1/7'>
+                <Link href='https://www.instagram.com/nanase__nyan' className='w-1/7'>
                   <Img src={insta_logo.src} />
                 </Link>
               </div>
@@ -203,13 +200,13 @@ export const MemberView = () => {
                 <p>特技：</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
-                <Link href='' className='w-1/8'>
+                <Link href='https://x.com/REIA_TEN' className='w-1/8'>
                   <Img src={x_logo.src} />
                 </Link>
-                <Link href='' className='w-1/8'>
+                <Link href='https://www.tiktok.com/@reia_s2_' className='w-1/8'>
                   <Img src={tiktok_logo.src} />
                 </Link>
-                <Link href='' className='w-1/7'>
+                <Link href='https://www.instagram.com/reia_s2' className='w-1/7'>
                   <Img src={insta_logo.src} />
                 </Link>
               </div>

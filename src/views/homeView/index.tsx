@@ -156,7 +156,7 @@ export const HomeView = () => {
       <Section>
         <Heading tag={2} label='SNS' />
         <Container maxWidth='sm'>
-          <div className='flex justify-center content-center gap-12'>
+          <div className='flex justify-center content-center gap-12 items-center'>
             <Link href='https://x.com/wonder__weed' className='w-1/6'>
               <Img src={x_logo.src} alt='x-logo' />
             </Link>
