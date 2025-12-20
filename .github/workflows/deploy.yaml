@@ -25,13 +25,24 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          cat << 'EOF' > ~/.ssh/id_ed25519
+          ${{ secrets.SSH_PRIVATE_KEY }}
+          EOF
+          chmod 600 ~/.ssh/id_ed25519
+
       - name: Deploy to Xserver
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          source: 'out/*'
-          target: '/home/xs206850/live-first.info/public_html/test1.live-first.info/'
-          strip_components: 1
+        env:
+          XSERVER_HOST: ${{ secrets.SSH_HOST }}
+          XSERVER_USER: ${{ secrets.SSH_USERNAME }}
+          XSERVER_REMOTE_PATH: ${{ secrets.SSH_PRIVATE_KEY }}
+          XSERVER_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          scp -i ~/.ssh/id_ed25519 \
+          -P ${XSERVER_PORT} \
+          -o StrictHostKeyChecking=no \
+          -o UserKnownHostsFile=/dev/null \
+          -r out/* \
+          "${XSERVER_USER}@${XSERVER_HOST}:${XSERVER_REMOTE_PATH}/"
