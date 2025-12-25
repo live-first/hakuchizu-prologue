@@ -33,8 +33,8 @@ export const MemberView = () => {
                 <p>担当カラー：ブルー</p>
                 <p>血液型:A型</p>
                 <p>身長：161cm</p>
-                <p>趣味：歌うこと</p>
-                <p>特技：誕生日を当てる／ドッヂボールの逃げ</p>
+                <p>趣味：Youtube鑑賞</p>
+                <p>特技：誕生日を当てる、人を笑顔にすること</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/yumeka_322' className='w-1/8'>
@@ -110,12 +110,11 @@ export const MemberView = () => {
                 <p>生年月日：2004年3月25日</p>
                 <p>出身地：東京都</p>
                 <p>担当カラー：レッド</p>
-                <p>血液型:AB型</p>
-                <p>身長：162cm</p>
-                <p>趣味：ショッピング</p>
-                <p>特技：ダンス</p>
-                <p>好きな食べ物：アイス</p>
-                <p>子供の頃の夢：アンパンマン</p>
+                <p>血液型:A型</p>
+                <p>身長：163cm</p>
+                <p>趣味：家事</p>
+                <p>特技：顔モノマネ</p>
+                <p>好きな食べ物：メロンパンとアイス</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/airi_wwt' className='w-1/8'>
@@ -140,10 +139,9 @@ export const MemberView = () => {
                 <p>担当カラー：イエロー</p>
                 <p>血液型:O型</p>
                 <p>身長：153cm</p>
-                <p>趣味：絵を描く、寝ること</p>
+                <p>趣味：絵を描く、寝ること、漫画、アニメ</p>
                 <p>特技：ピアノ フルート ミュージカルものまね</p>
                 <p>好きな食べ物：トマト</p>
-                <p>子供の頃の夢：絵描きさん</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/HaneKotomi' className='w-1/8'>
@@ -163,15 +161,13 @@ export const MemberView = () => {
               <Img src={arisu_nanase.src} alt='有栖ななせ' cName='duration-700 hover:scale-105' />
               <div className='pt-6 pb-2 text-2xl font-bold'>有栖ななせ</div>
               <div>
-                <p>生年月日：</p>
-                <p>出身地：</p>
-                <p>担当カラー：</p>
-                <p>血液型:</p>
-                <p>身長：</p>
-                <p>趣味：</p>
-                <p>特技：</p>
-                <p>好きな食べ物：</p>
-                <p>子供の頃の夢：</p>
+                <p>生年月日：2002年12月30日</p>
+                <p>出身地：東京都</p>
+                <p>担当カラー：パープル</p>
+                <p>血液型:AB型</p>
+                <p>身長：155cm</p>
+                <p>趣味：音楽鑑賞、読書、お笑い</p>
+                <p>特技：猫と仲良くなること</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/__nanase1230' className='w-1/8'>
@@ -191,13 +187,14 @@ export const MemberView = () => {
               <Img src={yuzuki_reia.src} alt='悠月れいあ' cName='duration-700 hover:scale-105' />
               <div className='pt-6 pb-2 text-2xl font-bold'>悠月れいあ</div>
               <div>
-                <p>生年月日：</p>
-                <p>出身地：</p>
+                <p>生年月日：2000年3月20日</p>
+                <p>出身地：神奈川県</p>
                 <p>担当カラー：ピンク</p>
-                <p>血液型:</p>
-                <p>身長：</p>
-                <p>趣味：</p>
-                <p>特技：</p>
+                <p>血液型:O型</p>
+                <p>身長：158cm</p>
+                <p>趣味：ゲーム</p>
+                <p>特技：MBTIを当てられる</p>
+                <p>好きな食べ物：ラーメン</p>
               </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/REIA_TEN' className='w-1/8'>
