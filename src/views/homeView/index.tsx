@@ -16,6 +16,7 @@ import yuzuki_reia from '@/image/悠月れいあ.jpg'
 import x_logo from '@/image/X.svg'
 import tiktok_logo from '@/image/TikTok.svg'
 import youtube_logo from '@/image/Youtube.png'
+import oneman from '@/image/oneman0302/01.jpg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -43,6 +44,11 @@ export const HomeView = () => {
 
   return (
     <div className='flex flex-col gap-32 py-8 justify-center px-1 md:px-6 bg-black'>
+      <Section>
+        <Link href='/news/detail/?id=zl04mim1rt'>
+          <Img src={oneman.src} alt='ワンマン' />
+        </Link>
+      </Section>
       <Section>
         <Heading tag={2} label='NEWS' />
         <Container maxWidth='md'>
