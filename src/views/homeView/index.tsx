@@ -42,6 +42,14 @@ export const HomeView = () => {
     )
   }
 
+  const ViewAllButton = ({ href }: { href: string }) => (
+    <Link href={href}>
+      <span className='flex px-20 py-4 mt-8 border bg-black hover:bg-white hover:text-black hover:border'>
+        VIEW All
+      </span>
+    </Link>
+  )
+
   return (
     <div className='flex flex-col gap-32 py-8 justify-center px-1 md:px-6 bg-black'>
       <Section>
@@ -54,11 +62,7 @@ export const HomeView = () => {
         <Container maxWidth='md'>
           <NewsList max={3} news={news} />
         </Container>
-        <Link href='/news'>
-          <span className='flex px-20 py-4 mt-8 border bg-black hover:bg-white hover:text-black hover:border'>
-            VIEW All
-          </span>
-        </Link>
+        <ViewAllButton href='/news' />
       </Section>
       <Section>
         <Heading tag={2} label='Schedule' />
@@ -76,11 +80,7 @@ export const HomeView = () => {
             <YouTube videoId={video} key={index} />
           ))}
         </div>
-        <Link href='/video'>
-          <span className='flex px-20 py-4 mt-8 border bg-black hover:bg-white hover:text-black hover:border'>
-            VIEW All
-          </span>
-        </Link>
+        <ViewAllButton href='/video' />
       </Section>
       <Section>
         <Heading tag={2} label='MEMBER' />
@@ -153,11 +153,7 @@ export const HomeView = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-        <Link href='/member'>
-          <span className='flex px-20 py-4 mt-8 border bg-black hover:bg-white hover:text-black hover:border'>
-            VIEW All
-          </span>
-        </Link>
+        <ViewAllButton href='/member' />
       </Section>
       <Section>
         <Heading tag={2} label='SNS' />
