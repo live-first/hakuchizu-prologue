@@ -3,20 +3,20 @@ import './globals.css'
 import Provider from './Provider'
 
 export const metadata: Metadata = {
-  title: 'ワンダーウィード 天',
-  description: 'アイドルグループ「ワンダーウィード 天」の公式サイトです。',
-  metadataBase: new URL('https://wonderweed-ten.com'),
+  title: '白地図プロローグ',
+  description: 'アイドルグループ「白地図プロローグ」の公式サイトです。「完成された物語」ではなく、「始まり続ける物語」を届けるために。',
+  metadataBase: new URL('https://hakuchizu-prologue.com'),
   openGraph: {
-    title: 'ワンダーウィード 天',
-    description: 'アイドルグループ「ワンダーウィード 天」の公式サイトです。',
-    url: 'https://wonder-weed.com',
-    siteName: 'ワンダーウィード 天',
+    title: '白地図プロローグ',
+    description: 'アイドルグループ「白地図プロローグ」の公式サイトです。',
+    url: 'https://hakuchizu-prologue.com',
+    siteName: '白地図プロローグ',
     images: [
       {
-        url: '/ワンダーウィード天.jpg',
+        url: '/白地図プロローグ.jpg',
         width: 1200,
         height: 630,
-        alt: 'ワンダーウィード 天',
+        alt: '白地図プロローグ',
       },
     ],
     locale: 'ja_JP',
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ワンダーウィード 天',
-    description: 'アイドルグループ「ワンダーウィード 天」の公式サイトです。',
-    images: ['/ワンダーウィード天.jpg'],
+    title: '白地図プロローグ',
+    description: 'アイドルグループ「白地図プロローグ」の公式サイトです。',
+    images: ['/白地図プロローグ.jpg'],
   },
 }
 

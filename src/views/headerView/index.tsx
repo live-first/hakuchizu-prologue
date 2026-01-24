@@ -4,7 +4,7 @@ import { Img } from '@/components/Image'
 import { cn } from '@/components/utils'
 import { Header } from '@/templates/header'
 import { useRouter } from 'next/navigation'
-import logo from '@/image/ワンダーウィード天ロゴ.jpg'
+import logo from '@/image/白地図プロローグロゴ.png'
 import x_logo from '@/image/X.svg'
 import tiktok_logo from '@/image/TikTok.svg'
 import youtube_logo from '@/image/Youtube.png'
@@ -59,15 +59,13 @@ export const HeaderView = ({ url }: { url?: string }) => {
         <div className='flex py-1 pl-12 pr-3 rounded-l-full'>
           <HeaderPcCell label='HOME' url='/' active={url === 'home'} />
           <span className='border-r border-white' />
-          <HeaderPcCell
-            label='GROUP PROFILE'
-            url='/group-profile'
-            active={url === 'group-profile'}
-          />
+          <HeaderPcCell label='PROFILE' url='/profile' active={url === 'group-profile'} />
           <span className='border-r border-white' />
           <HeaderPcCell label='MEMBER' url='/member' active={url === 'member'} />
           <span className='border-r border-white' />
-          <HeaderPcCell label='VIDEO' url='/video' active={url === 'video'} />
+          <HeaderPcCell label='SHOP' url='/shop' active={url === 'shop'} />
+          <span className='border-r border-white' />
+          <HeaderPcCell label='SCHEDULE' url='/schedule' active={url === 'schedule'} />
           <span className='border-r border-white' />
           <HeaderPcCell label='CONTACT' url='/contact' active={url === 'contact'} />
         </div>
@@ -75,23 +73,21 @@ export const HeaderView = ({ url }: { url?: string }) => {
       spView={
         <div className='flex flex-col gap-6 pt-16 px-4'>
           <HeaderSpCell label='HOME' url='/' />
-          <HeaderSpCell label='GROUP PROFILE' url='/group-profile' />
+          <HeaderSpCell label='PROFILE' url='/profile' />
           <HeaderSpCell label='MEMBER' url='/member' />
-          <HeaderSpCell label='VIDEO' url='/video' />
+          <HeaderSpCell label='SHOP' url='/shop' />
+          <HeaderSpCell label='SCHEDULE' url='/schedule' />
           <HeaderSpCell label='CONTACT' url='/contact' />
           <Img src={logo.src} />
           <div className='flex justify-center content-center gap-12 items-center'>
-            <Link href='https://x.com/wonder__weed' className='w-1/6'>
+            <Link href='https://x.com/HCPL_official' className='w-1/6'>
               <Img src={x_logo.src} alt='x-logo' />
             </Link>
-            {/* <Link href='' className='w-1/3'>
-            <Img src={insta_logo.src} alt='insta-logo' />
-          </Link> */}
-            <Link href='https://www.tiktok.com/@wonderweedten_official' className='w-1/6'>
+            <Link href='https://www.tiktok.com/@hcpl_official' className='w-1/6'>
               <Img src={tiktok_logo.src} alt='tiktok-logo' />
             </Link>
             <Link
-              href='https://youtube.com/@wonderweedten_official?si=63f0jF1x_idz0O2K'
+              href='https://youtube.com/@%E7%99%BD%E5%9C%B0%E5%9B%B3%E3%83%97%E3%83%AD%E3%83%AD%E3%83%BC%E3%82%B0'
               className='w-1/6'
             >
               <Img src={youtube_logo.src} alt='youtube-logo' />

@@ -15,7 +15,7 @@ export const Heading = (props: PropsWithChildren<HeadingProps>) => {
 
   return (
     <Tag className={cn('flex items-start justify-between', `h${tag}`, className)}>
-      <div className={`h${tag}-label`}>{label}</div>
+      <div className={`h${tag}-label font-mono`}>{label}</div>
       <div>{right}</div>
     </Tag>
   )

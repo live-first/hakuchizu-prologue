@@ -16,7 +16,6 @@ import yuzuki_reia from '@/image/悠月れいあ.jpg'
 import x_logo from '@/image/X.svg'
 import tiktok_logo from '@/image/TikTok.svg'
 import youtube_logo from '@/image/Youtube.png'
-import oneman from '@/image/oneman0302/01.jpg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -51,12 +50,7 @@ export const HomeView = () => {
   )
 
   return (
-    <div className='flex flex-col gap-32 py-8 justify-center px-1 md:px-6 bg-black'>
-      <Section>
-        <Link href='/news/detail/?id=zl04mim1rt'>
-          <Img src={oneman.src} alt='ワンマン' />
-        </Link>
-      </Section>
+    <div className='flex flex-col gap-32 py-8 justify-center px-1 md:px-6'>
       <Section>
         <Heading tag={2} label='NEWS' />
         <Container maxWidth='md'>
@@ -66,21 +60,13 @@ export const HomeView = () => {
       </Section>
       <Section>
         <Heading tag={2} label='Schedule' />
-        <iframe
-          src='https://calendar.google.com/calendar/embed?height=800&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;src=OXVva2M4cmxnMnY0MDV0Z2E2b2dpYTFuaGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%2381910B&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0'
-          width='100%'
-          height='800'
-          scrolling='no'
-        ></iframe>
-      </Section>
-      <Section>
-        <Heading tag={2} label='VIDEO' />
-        <div className='flex gap-4 w-full overflow-scroll'>
-          {homeVideo.map((video, index) => (
-            <YouTube videoId={video} key={index} />
-          ))}
-        </div>
-        <ViewAllButton href='/video' />
+        <Container maxWidth='md'>
+          <iframe
+            title='カレンダー'
+            src='https://timetreeapp.com/public_calendars/hcpl/embed/list?calendar_name=false&frame_color=%23e5f5ff'
+            className='w-full h-[500px]'
+          />
+        </Container>
       </Section>
       <Section>
         <Heading tag={2} label='MEMBER' />
@@ -159,17 +145,17 @@ export const HomeView = () => {
         <Heading tag={2} label='SNS' />
         <Container maxWidth='sm'>
           <div className='flex justify-center content-center gap-12 items-center'>
-            <Link href='https://x.com/wonder__weed' className='w-1/6'>
+            <Link href='https://x.com/HCPL_official' className='w-1/6'>
               <Img src={x_logo.src} alt='x-logo' />
             </Link>
             {/* <Link href='' className='w-1/3'>
             <Img src={insta_logo.src} alt='insta-logo' />
           </Link> */}
-            <Link href='https://www.tiktok.com/@wonderweedten_official' className='w-1/6'>
+            <Link href='https://www.tiktok.com/@hcpl_official' className='w-1/6'>
               <Img src={tiktok_logo.src} alt='tiktok-logo' />
             </Link>
             <Link
-              href='https://youtube.com/@wonderweedten_official?si=63f0jF1x_idz0O2K'
+              href='https://www.youtube.com/@%E7%99%BD%E5%9C%B0%E5%9B%B3%E3%83%97%E3%83%AD%E3%83%AD%E3%83%BC%E3%82%B0'
               className='w-1/6'
             >
               <Img src={youtube_logo.src} alt='youtube-logo' />

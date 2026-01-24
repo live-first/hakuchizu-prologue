@@ -14,14 +14,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ededed;
     --foreground: #ededed;
   }
 }
 
 body {
-  background: #000000;
-  color: #ffffff;
+  background: #ededed;
+  color: #2f2f2f;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -31,8 +31,7 @@ a {
   transition: all 0.3s ease;
 }
 
-button:hover,
-a:hover {
+.ahover:hover {
   opacity: 0.8;
   transform: translateY(-2px);
 }
