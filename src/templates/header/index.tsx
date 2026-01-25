@@ -34,11 +34,11 @@ export const Header = (props: HeaderProps) => {
 
   return (
     <div className={cn('flex flex-col w-full h-full')}>
-      <div className='flex w-full h-full px-3 justify-between items-center shadow-sm shadow-cyan-500/50 bg-white'>
+      <div className='flex w-full h-full pl-3 justify-between items-center shadow-sm shadow-cyan-500/50 bg-white'>
         <Link href='/' className='h-full'>
           {logoArea}
         </Link>
-        <div className='hidden md:flex'>{pcView}</div>
+        <div className='hidden md:flex h-full'>{pcView}</div>
         <button
           className={cn(
             'flex flex-col md:hidden hamburger-menu items-center mr-3',

@@ -19,7 +19,7 @@ export const NewsList = (props: NewsListProps) => {
         {news?.map((data, index) => {
           return index < max ? (
             <Link href={`/news/detail?id=${data.id}`} key={index}>
-              <div className='border-b border-white p-4 hover:bg-[#0f0f0f]'>
+              <div className='border-b border-b-blue-400 p-4 hover:bg-[#e5f5ff]'>
                 <div>{formatDate(data.publishedAt, 'YYYY / MM / DD')}</div>
                 <div className='text-lg font-bold'>{data.title}</div>
               </div>

@@ -11,6 +11,7 @@ import youtube_logo from '@/image/Youtube.png'
 import Link from 'next/link'
 
 export const HeaderView = ({ url }: { url?: string }) => {
+  const router = useRouter()
   const Logo = () => {
     return (
       <Img src={logo.src} cName='h-full object-contain object-left' style={{ width: undefined }} />
@@ -21,16 +22,17 @@ export const HeaderView = ({ url }: { url?: string }) => {
     label: string
     url: string
     active?: boolean
+    className?: string
   }
 
   const HeaderPcCell = (props: HeaderCellProps) => {
-    const router = useRouter()
-    const { label, url, active } = props
+    const { label, url, active, className } = props
     return (
       <button
         className={cn(
-          'flex flex-col h-full font-bold  hover:text-[#ca9b52] py-1 px-4 text-krf-pink text-shadow-lg whitespace-nowrap',
+          'flex flex-col h-full font-bold  hover:text-[#ca9b52] py-1 px-4 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
           active ? 'text-[#ca9b52]' : 'hover:cursor-pointer',
+          className,
         )}
         onClick={() => router.push(url)}
       >
@@ -40,7 +42,6 @@ export const HeaderView = ({ url }: { url?: string }) => {
   }
 
   const HeaderSpCell = (props: HeaderCellProps) => {
-    const router = useRouter()
     const { label, url } = props
     return (
       <button
@@ -56,7 +57,7 @@ export const HeaderView = ({ url }: { url?: string }) => {
     <Header
       logoArea={<Logo />}
       pcView={
-        <div className='flex py-1 pl-12 pr-3 rounded-l-full'>
+        <div className='flex rounded-l-full'>
           <HeaderPcCell label='HOME' url='/' active={url === 'home'} />
           <span className='border-r border-white' />
           <HeaderPcCell label='PROFILE' url='/profile' active={url === 'group-profile'} />
@@ -67,7 +68,14 @@ export const HeaderView = ({ url }: { url?: string }) => {
           <span className='border-r border-white' />
           <HeaderPcCell label='SCHEDULE' url='/schedule' active={url === 'schedule'} />
           <span className='border-r border-white' />
-          <HeaderPcCell label='CONTACT' url='/contact' active={url === 'contact'} />
+          <button
+            className={cn(
+              'flex flex-col h-full font-bold bg-primary  hover:text-[#ca9b52] px-4 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
+            )}
+            onClick={() => router.push('/contact')}
+          >
+            CONTACT
+          </button>
         </div>
       }
       spView={

@@ -13,7 +13,7 @@ export const NewsListView = () => {
     ? (getNews.data.contents as unknown as NewsContentsType[])
     : []
   return (
-    <div className='flex flex-col gap-12 pt-8 justify-center items-center pb-40 px-1 md:px-6 bg-black'>
+    <div className='flex flex-col gap-12 pt-8 justify-center items-center pb-40 px-1 md:px-6'>
       <Heading tag={2} label='NEWS' />
       <Container maxWidth='md'>
         <NewsList news={news} />
