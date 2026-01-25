@@ -30,8 +30,8 @@ export const HeaderView = ({ url }: { url?: string }) => {
     return (
       <button
         className={cn(
-          'flex flex-col h-full font-bold  hover:text-[#ca9b52] py-1 px-4 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
-          active ? 'text-[#ca9b52]' : 'hover:cursor-pointer',
+          'flex flex-col h-full font-bold  hover:text-[#6f95ff] py-1 px-3 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
+          active ? 'text-[#6f95ff]' : 'hover:cursor-pointer',
           className,
         )}
         onClick={() => router.push(url)}
@@ -70,7 +70,7 @@ export const HeaderView = ({ url }: { url?: string }) => {
           <span className='border-r border-white' />
           <button
             className={cn(
-              'flex flex-col h-full font-bold bg-primary  hover:text-[#ca9b52] px-4 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
+              'flex flex-col h-full font-bold bg-[#3adeff]  hover:text-[#6f95ff] px-4 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
             )}
             onClick={() => router.push('/contact')}
           >
@@ -79,7 +79,7 @@ export const HeaderView = ({ url }: { url?: string }) => {
         </div>
       }
       spView={
-        <div className='flex flex-col gap-6 pt-16 px-4'>
+        <div className='flex flex-col gap-6 pt-16 px-4 bg-blue-200'>
           <HeaderSpCell label='HOME' url='/' />
           <HeaderSpCell label='PROFILE' url='/profile' />
           <HeaderSpCell label='MEMBER' url='/member' />

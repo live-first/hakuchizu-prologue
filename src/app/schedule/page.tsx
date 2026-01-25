@@ -6,7 +6,7 @@ import { ScheduleView } from '@/views/scheduleView'
 export default function Video() {
   return (
     <SingleViewLayout
-      header={<HeaderView url='video' />}
+      header={<HeaderView url='schedule' />}
       main={<ScheduleView />}
       footer={<FooterView />}
     />
