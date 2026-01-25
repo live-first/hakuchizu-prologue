@@ -5,7 +5,7 @@ import { Heading } from '@/components/Heading'
 export const ScheduleView = () => {
   return (
     <div className='flex flex-col gap-12 pt-8 justify-center items-center pb-40 px-1 md:px-6'>
-      <Heading tag={2} label='SCHEDULE' />
+      <Heading tag={2} label='SCHEDULE' className='pt-24 pb-8' />
       <div className='flex flex-col gap-4 w-full'>
         <iframe
           title='カレンダー'
