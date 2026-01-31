@@ -143,7 +143,7 @@ export const HomeView = () => {
             <p>その他のお問い合わせは下記までお願いします。</p>
           </div>
           <Link href='/contact'>
-            <span className='flex px-20 py-4 mt-8 border bg-black hover:bg-white hover:text-black hover:border'>
+            <span className='flex px-20 py-4 mt-8 border bg-[#e5f5ff] border-blue-400 hover:bg-white'>
               お問い合わせはこちら
             </span>
           </Link>
