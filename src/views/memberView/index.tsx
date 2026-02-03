@@ -20,15 +20,15 @@ export const MemberView = () => {
             <div className='flex flex-col p-1 md:p-3 w-full' id='佐藤ひかる'>
               <Img src={hikaru.src} alt='佐藤ひかる' cName='duration-700 hover:scale-105' />
               <div className='pt-6 pb-2 text-2xl font-bold'>佐藤ひかる</div>
-              {/* <div>
+              <div>
                 <p>生年月日：10月22日</p>
-                <p>出身地：埼玉県</p>
-                <p>担当カラー：ブルー</p>
-                <p>血液型:A型</p>
-                <p>身長：161cm</p>
-                <p>趣味：Youtube鑑賞</p>
-                <p>特技：誕生日を当てる、人を笑顔にすること</p>
-              </div> */}
+                <p>MBTI：INFJ</p>
+                <p>出身地：広島県</p>
+                <p>担当カラー：レッド</p>
+                <p>血液型:O型</p>
+                <p>趣味：掃除 または 犬の散歩を見る または アイドル鑑賞</p>
+                <p>特技：中国語</p>
+              </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/HCPL_hikaru' className='w-1/8'>
                   <Img src={xLogo.src} />
@@ -43,15 +43,17 @@ export const MemberView = () => {
             <div className='flex flex-col p-1 md:p-3 w-full' id='櫻葉ここ'>
               <Img src={koko.src} alt='櫻葉ここ' cName='duration-700 hover:scale-105' />
               <div className='pt-6 pb-2 text-2xl font-bold'>櫻葉ここ</div>
-              {/* <div>
-                <p>生年月日：1997年10月18日</p>
-                <p>出身地：群馬県</p>
-                <p>担当カラー：グリーン</p>
-                <p>血液型:A型</p>
-                <p>身長：158.5cm</p>
-                <p>趣味：読書／人の写真を撮ること</p>
-                <p>特技：フランス語／英語／アルトサックス／ダンス</p>
-              </div> */}
+              <div>
+                <p>生年月日：9月26日</p>
+                <p>MBTI：ESFP</p>
+                <p>出身地：山梨県</p>
+                <p>担当カラー：ピンク</p>
+                <p>血液型:AB型</p>
+                <p>
+                  特技：おしゃべり たくさん笑うこと 躓くこと 迷子になること 美味しそうに食べること
+                  人差し指と小指を両手くっつけることができるとこ
+                </p>
+              </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/HCPL_koko' className='w-1/8'>
                   <Img src={xLogo.src} />
@@ -66,15 +68,14 @@ export const MemberView = () => {
             <div className='flex flex-col p-1 md:p-3 w-full' id='橘みお'>
               <Img src={mio.src} alt='橘みお' cName='duration-700 hover:scale-105' />
               <div className='pt-6 pb-2 text-2xl font-bold'>橘みお</div>
-              {/* <div>
-                <p>生年月日：2002年7月15日</p>
-                <p>出身地：神奈川県</p>
+              <div>
+                <p>生年月日：10月28日</p>
+                <p>MBTI：ISFJ</p>
+                <p>出身地：大阪府</p>
                 <p>担当カラー：オレンジ</p>
                 <p>血液型:O型</p>
-                <p>身長：160cm</p>
-                <p>趣味：アニメ、アイドル</p>
-                <p>特技：お菓子作り</p>
-              </div> */}
+                <p>趣味：お菓子作り、カラオケ</p>
+              </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/HCPL_mio' className='w-1/8'>
                   <Img src={xLogo.src} />
@@ -92,16 +93,15 @@ export const MemberView = () => {
             <div className='flex flex-col p-1 md:p-3 w-full' id='咲真まつり'>
               <Img src={matsuri.src} alt='咲真まつり' cName='duration-700 hover:scale-105' />
               <div className='pt-6 pb-2 text-2xl font-bold'>咲真まつり</div>
-              {/* <div>
-                <p>生年月日：2004年3月25日</p>
-                <p>出身地：東京都</p>
-                <p>担当カラー：レッド</p>
+              <div>
+                <p>生年月日：6月27日</p>
+                <p>MBTI：ENTP</p>
+                <p>出身地：埼玉県</p>
+                <p>担当カラー：イエロー</p>
                 <p>血液型:A型</p>
-                <p>身長：163cm</p>
-                <p>趣味：家事</p>
-                <p>特技：顔モノマネ</p>
-                <p>好きな食べ物：メロンパンとアイス</p>
-              </div> */}
+                <p>趣味：アニメを見ること</p>
+                <p>特技：ダンス、韓国語</p>
+              </div>
               <div className='flex justify-center gap-8 pt-2'>
                 <Link href='https://x.com/HCPL_matsuri' className='w-1/8'>
                   <Img src={xLogo.src} />

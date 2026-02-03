@@ -30,8 +30,8 @@ export const HeaderView = ({ url }: { url?: string }) => {
     return (
       <button
         className={cn(
-          'flex flex-col h-full font-bold  hover:text-[#6f95ff] py-1 px-3 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
-          active ? 'text-[#6f95ff]' : 'hover:cursor-pointer',
+          'flex flex-col h-full font-bold  hover:text-secondary py-1 px-3 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
+          active ? 'text-secondary' : 'hover:cursor-pointer',
           className,
         )}
         onClick={() => router.push(url)}
@@ -70,7 +70,7 @@ export const HeaderView = ({ url }: { url?: string }) => {
           <span className='border-r border-white' />
           <button
             className={cn(
-              'flex flex-col h-full font-bold bg-[#3adeff]  hover:text-[#6f95ff] px-4 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
+              'flex flex-col h-full font-bold bg-secondary text-white hover:text-[#6f95ff] px-4 text-krf-pink text-shadow-lg whitespace-nowrap justify-center',
             )}
             onClick={() => router.push('/contact')}
           >
