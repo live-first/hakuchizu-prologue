@@ -34,7 +34,7 @@ export const Header = (props: HeaderProps) => {
 
   return (
     <div className={cn('flex flex-col w-full h-full')}>
-      <div className='flex w-full h-full pl-3 justify-between items-center shadow-sm shadow-cyan-500/50 bg-white'>
+      <div className='flex w-full h-full pl-3 justify-between items-center shadow-sm shadow-secondary bg-white'>
         <Link href='/' className='h-full'>
           {logoArea}
         </Link>
