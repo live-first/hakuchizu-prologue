@@ -6,7 +6,7 @@ import { HeaderView } from '@/views/headerView'
 export default function GroupProfile() {
   return (
     <SingleViewLayout
-      header={<HeaderView url='group-profile' />}
+      header={<HeaderView url='profile' />}
       main={<GroupProfileView />}
       footer={<FooterView />}
     />

@@ -6,7 +6,7 @@ import { ShopView } from '@/views/shopView'
 export default function Shop() {
   return (
     <SingleViewLayout
-      header={<HeaderView url='video' />}
+      header={<HeaderView url='shop' />}
       main={<ShopView />}
       footer={<FooterView />}
     />

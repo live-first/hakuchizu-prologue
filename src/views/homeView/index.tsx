@@ -21,6 +21,8 @@ import x_logo from '@/image/X.svg'
 import tiktok_logo from '@/image/TikTok.svg'
 import youtube_logo from '@/image/Youtube.png'
 import './style.css'
+import { FaQuestion } from 'react-icons/fa'
+import { FaCartShopping } from "react-icons/fa6"
 
 export const HomeView = () => {
   const { getNews } = useNewsApi()
@@ -112,6 +114,21 @@ export const HomeView = () => {
           </Swiper>
         </div>
         <ViewAllButton href='/member' />
+      </SlideUpSection>
+      <SlideUpSection>
+        <Heading tag={2} label='OTHER' />
+        <div className='flex flex-col'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6'>
+            <Link href='/shop' className='flex flex-col items-center text-white bg-secondary w-full rounded-2xl p-4'>
+              <FaCartShopping className='text-lg' />
+              <label className='text-sm'>ショップ</label>
+            </Link>
+            <Link href='/faq' className='flex flex-col items-center text-white bg-secondary w-full rounded-2xl p-4'>
+              <FaQuestion className='text-lg' />
+              <label className='text-sm'>よくある質問</label>
+            </Link>
+          </div>
+        </div>
       </SlideUpSection>
       <div className='flex flex-col py-32 gap-32 bg-blue-gradient'>
         <SlideUpSection>
