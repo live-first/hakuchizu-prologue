@@ -59,7 +59,10 @@ export const Header = (props: HeaderProps) => {
         <Link href='https://www.tiktok.com/@hcpl_official' target='_blank'>
           <Img cName='h-6' src={ttLogo.src} alt='tiktok-logo' notNext />
         </Link>
-        <Link href='https://www.youtube.com/@%E7%99%BD%E5%9C%B0%E5%9B%B3%E3%83%97%E3%83%AD%E3%83%AD%E3%83%BC%E3%82%B0' target='_blank'>
+        <Link
+          href='https://www.youtube.com/@%E7%99%BD%E5%9C%B0%E5%9B%B3%E3%83%97%E3%83%AD%E3%83%AD%E3%83%BC%E3%82%B0'
+          target='_blank'
+        >
           <Img cName='h-6' src={ytLogo.src} alt='youtube-logo' notNext />
         </Link>
       </div>
