@@ -16,19 +16,28 @@ import { Img } from '@/components/Image'
 import { Container } from '@mui/material'
 import { useNewsApi } from '@/api/newsApi'
 import { NewsContentsType } from '@/domain/news'
-import { SlideUpSection } from '@/templates/section/SlideUpSection'
 import x_logo from '@/image/X.svg'
 import tiktok_logo from '@/image/TikTok.svg'
 import youtube_logo from '@/image/Youtube.png'
 import './style.css'
 import { FaQuestion } from 'react-icons/fa'
-import { FaCartShopping } from "react-icons/fa6"
+import { FaCartShopping } from 'react-icons/fa6'
+import SlideUpAnimation from '@/components/animation/slideUpAnimation'
+import { PropsWithChildren } from 'react'
 
 export const HomeView = () => {
   const { getNews } = useNewsApi()
   const news: NewsContentsType[] = getNews.data
     ? (getNews.data.contents as unknown as NewsContentsType[])
     : []
+
+  const Section = ({ children }: PropsWithChildren) => {
+    return (
+      <SlideUpAnimation>
+        <div className='flex flex-col w-full gap-2 items-center'>{children}</div>
+      </SlideUpAnimation>
+    )
+  }
 
   const ViewAllButton = ({ href }: { href: string }) => (
     <Link href={href}>
@@ -40,14 +49,14 @@ export const HomeView = () => {
 
   return (
     <div className='flex flex-col gap-32 pt-8 justify-center'>
-      <SlideUpSection>
+      <Section>
         <Heading tag={2} label='NEWS' />
         <Container maxWidth='md'>
           <NewsList max={3} news={news} />
         </Container>
         <ViewAllButton href='/news' />
-      </SlideUpSection>
-      <SlideUpSection>
+      </Section>
+      <Section>
         <Heading tag={2} label='Schedule' />
         <Container maxWidth='md'>
           <iframe
@@ -56,8 +65,8 @@ export const HomeView = () => {
             className='w-full h-[500px]'
           />
         </Container>
-      </SlideUpSection>
-      <SlideUpSection>
+      </Section>
+      <Section>
         <Heading tag={2} label='MEMBER' />
         <div className='flex w-full'>
           <Swiper
@@ -114,24 +123,30 @@ export const HomeView = () => {
           </Swiper>
         </div>
         <ViewAllButton href='/member' />
-      </SlideUpSection>
-      <SlideUpSection>
+      </Section>
+      <Section>
         <Heading tag={2} label='OTHER' />
         <div className='flex flex-col'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6'>
-            <Link href='/shop' className='flex flex-col items-center text-white bg-secondary w-full rounded-2xl p-4'>
+          <div className='grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6'>
+            <Link
+              href='/shop'
+              className='flex flex-col items-center text-white bg-secondary w-full rounded-2xl p-4'
+            >
               <FaCartShopping className='text-lg' />
               <label className='text-sm'>ショップ</label>
             </Link>
-            <Link href='/faq' className='flex flex-col items-center text-white bg-secondary w-full rounded-2xl p-4'>
+            <Link
+              href='/faq'
+              className='flex flex-col items-center text-white bg-secondary w-full rounded-2xl p-4'
+            >
               <FaQuestion className='text-lg' />
               <label className='text-sm'>よくある質問</label>
             </Link>
           </div>
         </div>
-      </SlideUpSection>
+      </Section>
       <div className='flex flex-col py-32 gap-32 bg-blue-gradient'>
-        <SlideUpSection>
+        <Section>
           <Heading tag={2} label='SNS' />
           <Container maxWidth='sm'>
             <div className='flex justify-center content-center gap-12 items-center'>
@@ -152,8 +167,8 @@ export const HomeView = () => {
               </Link>
             </div>
           </Container>
-        </SlideUpSection>
-        <SlideUpSection>
+        </Section>
+        <Section>
           <Heading tag={2} label='CONTACT' />
           <div className='flex flex-col gap-4 text-center pt-4'>
             <p>イベント出演のお誘い / 取材 / 仕事依頼 /</p>
@@ -164,7 +179,7 @@ export const HomeView = () => {
               お問い合わせはこちら
             </span>
           </Link>
-        </SlideUpSection>
+        </Section>
       </div>
     </div>
   )
