@@ -79,7 +79,7 @@ export const HeaderView = ({ url }: { url?: string }) => {
         </div>
       }
       spView={
-        <div className='flex flex-col gap-6 pt-16 px-4 bg-blue-200'>
+        <div className='flex flex-col gap-6 pt-16 px-4 bg-blue-200 h-dvh'>
           <HeaderSpCell label='HOME' url='/' />
           <HeaderSpCell label='PROFILE' url='/profile' />
           <HeaderSpCell label='MEMBER' url='/member' />

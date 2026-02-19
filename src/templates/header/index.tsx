@@ -53,13 +53,16 @@ export const Header = (props: HeaderProps) => {
         </button>
       </div>
       <div className='flex w-full justify-end gap-6 px-6 py-1'>
-        <Link href='https://twitter.com/aime_staff' target='_blank'>
+        <Link href='https://x.com/HCPL_official' target='_blank'>
           <Img cName='h-6' src={xLogo.src} alt='x-logo' notNext />
         </Link>
-        <Link href='https://www.tiktok.com/@aime_1005' target='_blank'>
+        <Link href='https://www.tiktok.com/@hcpl_official' target='_blank'>
           <Img cName='h-6' src={ttLogo.src} alt='tiktok-logo' notNext />
         </Link>
-        <Link href='https://www.youtube.com/@aiMe_2024' target='_blank'>
+        <Link
+          href='https://www.youtube.com/@%E7%99%BD%E5%9C%B0%E5%9B%B3%E3%83%97%E3%83%AD%E3%83%AD%E3%83%BC%E3%82%B0'
+          target='_blank'
+        >
           <Img cName='h-6' src={ytLogo.src} alt='youtube-logo' notNext />
         </Link>
       </div>
