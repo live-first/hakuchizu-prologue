@@ -1,14 +1,17 @@
 import { PropsWithChildren } from 'react'
 import { cn } from '../utils'
+import './panel.css'
 
-type PalenProps = {
+type PanelProps = {
+  size?: 'sm' | 'md' | 'lg' | 'xl'
   className?: string
 }
 
-export const Panel = (props: PropsWithChildren<PalenProps>) => {
-  const { className, children } = props
+export const Panel = (props: PropsWithChildren<PanelProps>) => {
+  const { size, className, children } = props
+
   return (
-    <div className={cn('flex flex-col px-4 py-4 bg-white rounded-2xl gap-6', className)}>
+    <div className={cn('flex flex-col panel bg-background', size && `panel-${size}`, className)}>
       {children}
     </div>
   )

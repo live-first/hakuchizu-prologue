@@ -4,12 +4,17 @@ import { Img } from '@/components/Image'
 import './style.css'
 import spark_logo from '@/image/spark/sparking_logo.svg'
 import hcpl_logo from '@/image/白地図プロローグロゴ.png'
+import hcpl from '@/image/白地図プロローグ.jpg'
+import rule1 from '@/image/spark/rule1.jpeg'
 import { Container } from '@mui/material'
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import { IoMdArrowDown } from 'react-icons/io'
 import { Heading } from '@/components/Heading'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
+import { LetterPanel } from '@/templates/letterPanel'
+import { Marker } from '@/components/Marker'
+import { YoutubeContainer } from '@/templates/youtube'
 
 export const SparkingView = () => {
   return (
@@ -23,7 +28,8 @@ export const SparkingView = () => {
       </Link>
       <Header />
       <Caution />
-      <Hcpl />
+      <About />
+      <Rule />
       <Faq />
       <Caution2 />
     </div>
@@ -38,7 +44,7 @@ const Header = () => {
         2026<span className='text-3xl'>年</span>3<span className='text-3xl'>月</span>4
         <span className='text-3xl'>日</span>-5<span className='text-3xl'>日</span>
       </div>
-      <div className='text-white italic font-bold text-5xl text-shadow'>
+      <div className='text-white italic font-bold text-2xl md:text-5xl text-shadow'>
         有楽町ヒューリックホール
       </div>
     </div>
@@ -65,10 +71,49 @@ const Caution2 = () => {
   )
 }
 
-const Hcpl = () => {
+const About = () => {
   return (
-    <div className='px-2 md:px-24 lg:px-36'>
-      <Img src={hcpl_logo.src} alt='白地図プロローグロゴ' />
+    <div className='flex flex-col bg-babble pt-12 pb-24 gap-6'>
+      <Container maxWidth='xl'>
+        <Img src={hcpl_logo.src} alt='白地図プロローグロゴ' cName='pb-6' />
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-4'>
+          <LetterPanel title='SPARKingとは'>
+            <div>
+              <Marker theme='yellow'>SPARKing</Marker>
+              は、毎年夏に開催されている大型のアイドルの対バンイベント
+              <Marker theme='pink'>『SPARK』</Marker>に出場するための、予選会イベントです。
+              <br />
+              <br />
+              今回は第三回目のイベントで優勝賞金は<Marker theme='yellow'>150万円</Marker>
+              となっております。
+              <br />
+              <br />
+              <YoutubeContainer videoId='pEWiRDS_Zw8' />
+            </div>
+          </LetterPanel>
+
+          <LetterPanel title='白地図プロローグ'>
+            <div>
+              <Marker theme='yellow'>白地図プロローグ</Marker>は
+              <Marker theme='pink'>
+                「完成された物語」ではなく「始まり続ける物語」を届けるために。
+              </Marker>
+              をコンセプトに東京拠点で活動しているアイドルグループです。2026年2月1日からプレデビューとして活動を開始しています。
+            </div>
+            <Img src={hcpl.src} alt='白地図プロローグ' />
+          </LetterPanel>
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+const Rule = () => {
+  return (
+    <div className='flex flex-col w-full bg-[#ef9fff] py-12 items-center justify-center'>
+      <Container maxWidth='md'>
+        <Img src={rule1.src} alt='SPARKingルール' />
+      </Container>
     </div>
   )
 }
