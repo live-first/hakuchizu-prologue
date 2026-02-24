@@ -319,7 +319,7 @@ const Simulator = () => {
     <div className='bg-amber-100'>
       <Container maxWidth='md' className=''>
         <Heading tag={2} label='Simulator' className='pt-24 pb-8' />
-        <div className='flex gap-6 pb-24'>
+        <div className='gap-6 pb-24 grid grid-cols-1 md:grid-cols-2'>
           <LetterPanel title='購入商品'>
             <p className='leading-4'>購入したチケットの枚数や各種券の枚数を入力してください</p>
             <div className='flex flex-col gap-4 py-2'>
