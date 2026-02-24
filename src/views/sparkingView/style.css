@@ -7,3 +7,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.spin-erase::-webkit-inner-spin-button,
+.spin-erase::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+.spin {
+  border: 1px solid #000000;
+}
