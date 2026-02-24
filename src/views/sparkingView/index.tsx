@@ -6,6 +6,9 @@ import spark_logo from '@/image/spark/sparking_logo.svg'
 import hcpl_logo from '@/image/白地図プロローグロゴ.png'
 import hcpl from '@/image/白地図プロローグ.jpg'
 import rule1 from '@/image/spark/rule1.jpeg'
+import reg1 from '@/image/spark/reg1.jpeg'
+import reg2 from '@/image/spark/reg2.jpeg'
+import reg3 from '@/image/spark/reg3.jpeg'
 import timetable0304 from '@/image/spark/timetable0304.jpeg'
 import { Container } from '@mui/material'
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
@@ -19,6 +22,11 @@ import { YoutubeContainer } from '@/templates/youtube'
 import { PresentType, SelectedItemType } from '@/domain/sparking'
 import { initSelectedItem, votingMaster as vm } from '@/data/sparking'
 import { returnItems as ri } from '@/data/sparkingItem'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 export const SparkingView = () => {
   return (
@@ -128,6 +136,34 @@ const Rule = () => {
         <Img src={rule1.src} alt='SPARKingルール' />
         <Heading tag={2} label='TIME TABLE' className='pt-24 pb-8' />
         <Img src={timetable0304.src} alt='SPARKing予選会タイムテーブル' />
+        <Heading tag={2} label='レギュレーション' className='pt-24 pb-8' />
+        <div className='flex w-full'>
+          <Swiper
+            modules={[Autoplay, Navigation, Pagination]}
+            pagination={{ clickable: false, el: '#pagination' }}
+            mousewheel={true}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            speed={500}
+            centeredSlides={true}
+            loop={true}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+              },
+            }}
+          >
+            <SwiperSlide>
+              <Img src={reg1.src} alt='' />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Img src={reg2.src} alt='' />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Img src={reg3.src} alt='' />
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </Container>
     </div>
   )
@@ -283,7 +319,7 @@ const Simulator = () => {
     <div className='bg-amber-100'>
       <Container maxWidth='md' className=''>
         <Heading tag={2} label='Simulator' className='pt-24 pb-8' />
-        <div className='flex gap-6 pb-6'>
+        <div className='flex gap-6 pb-24'>
           <LetterPanel title='購入商品'>
             <p className='leading-4'>購入したチケットの枚数や各種券の枚数を入力してください</p>
             <div className='flex flex-col gap-4 py-2'>
