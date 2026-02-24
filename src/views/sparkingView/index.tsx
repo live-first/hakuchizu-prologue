@@ -6,15 +6,19 @@ import spark_logo from '@/image/spark/sparking_logo.svg'
 import hcpl_logo from '@/image/白地図プロローグロゴ.png'
 import hcpl from '@/image/白地図プロローグ.jpg'
 import rule1 from '@/image/spark/rule1.jpeg'
+import timetable0304 from '@/image/spark/timetable0304.jpeg'
 import { Container } from '@mui/material'
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import { IoMdArrowDown } from 'react-icons/io'
 import { Heading } from '@/components/Heading'
 import Link from 'next/link'
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, useEffect, useState } from 'react'
 import { LetterPanel } from '@/templates/letterPanel'
 import { Marker } from '@/components/Marker'
 import { YoutubeContainer } from '@/templates/youtube'
+import { PresentType, SelectedItemType } from '@/domain/sparking'
+import { initSelectedItem, votingMaster as vm } from '@/data/sparking'
+import { returnItems as ri } from '@/data/sparkingItem'
 
 export const SparkingView = () => {
   return (
@@ -31,6 +35,7 @@ export const SparkingView = () => {
       <About />
       <Rule />
       <Faq />
+      <Simulator />
       <Caution2 />
     </div>
   )
@@ -46,6 +51,14 @@ const Header = () => {
       </div>
       <div className='text-white italic font-bold text-2xl md:text-5xl text-shadow'>
         有楽町ヒューリックホール
+      </div>
+      <div className='flex flex-col border-2 border-white p-3 text-white'>
+        <div className='flex text-red-600'>3/4（水）</div>
+        <div className='flex text-red-600'>《特典会》15:30〜16:30 《ライブ》17:20〜17:35</div>
+        <div className='flex'>
+          <div className='bg-fuchsia-500 px-1'>投票可能時間</div>
+          <div className='flex text-red-600'>15:30〜17:30</div>
+        </div>
       </div>
     </div>
   )
@@ -113,6 +126,8 @@ const Rule = () => {
     <div className='flex flex-col w-full bg-[#ef9fff] py-12 items-center justify-center'>
       <Container maxWidth='md'>
         <Img src={rule1.src} alt='SPARKingルール' />
+        <Heading tag={2} label='TIME TABLE' className='pt-24 pb-8' />
+        <Img src={timetable0304.src} alt='SPARKing予選会タイムテーブル' />
       </Container>
     </div>
   )
@@ -187,12 +202,6 @@ const Faq = () => {
             A.
             内容・サイズともに自由（メンバーにお任せです！）一応、持ち帰れるサイズにするようにとは伝えます🍱🥷
           </AccordionTemp>
-          <AccordionTemp question='Q. リセール時の返金はいつになりますか？'>
-            A. 返金時期は個別対応となります。
-            <br />
-            該当の方は、必ず一度公式（@HCPL_official）DMまでご連絡ください🙇
-            <br />
-          </AccordionTemp>
           <AccordionTemp question='Q. 累計投票特典の60票を、30票×2に分けて2人からデジタル手紙をもらえますか？'>
             A. 振り分けは可能です！ただし、通過制特典は重複しません（1回のみ付与）
             <br />
@@ -205,6 +214,195 @@ const Faq = () => {
           <AccordionTemp question='Q.チケットを申し込んだけど急遽行けなくなってしまった…体調不良で当日来られなくなった…「行けないけどVIP特典が欲しい！」'>
             A.公式（@HCPL_official）DMまでご連絡ください！こちらで対応いたします✨
           </AccordionTemp>
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+const Simulator = () => {
+  // 選択されたアイテム
+  const [item, setItem] = useState<SelectedItemType>(initSelectedItem)
+  // 投票数
+  const [voting, setVoting] = useState<number>(0)
+  const [present, setPresent] = useState<PresentType[]>([])
+
+  useEffect(() => {
+    const votingAmount =
+      item.vip * vm.vip.voting +
+      item.general * vm.general.voting +
+      item.common * vm.common.voting +
+      item.ouen * vm.ouen.voting +
+      item.kuji * vm.kuji.voting +
+      item.shoutai * vm.shoutai.voting
+    setVoting(votingAmount)
+
+    const presentAll: PresentType[] = []
+    // VIP
+    vm.vip.items.map((vi) => {
+      // リターンアイテムを抽出する
+      const pi = ri.filter((content) => content.id === vi.id)[0]
+      presentAll.push({ id: pi.id, title: pi.title, amount: vi.amount * item.vip })
+    })
+
+    // 一般
+    vm.general.items.map((vi) => {
+      // リターンアイテムを抽出する
+      const pi = ri.filter((content) => content.id === vi.id)[0]
+      presentAll.push({ id: pi.id, title: pi.title, amount: vi.amount * item.general })
+    })
+
+    // 応援
+    vm.ouen.items.map((vi) => {
+      // リターンアイテムを抽出する
+      const pi = ri.filter((content) => content.id === vi.id)[0]
+      presentAll.push({ id: pi.id, title: pi.title, amount: vi.amount * item.ouen })
+    })
+
+    // 招待
+    vm.shoutai.items.map((vi) => {
+      // リターンアイテムを抽出する
+      const pi = ri.filter((content) => content.id === vi.id)[0]
+      presentAll.push({ id: pi.id, title: pi.title, amount: vi.amount * item.shoutai })
+    })
+
+    const merged = Object.values(
+      presentAll.reduce<Record<string, PresentType>>((acc, item) => {
+        if (!acc[item.id]) {
+          acc[item.id] = { ...item }
+        } else {
+          acc[item.id].amount += item.amount
+        }
+        return acc
+      }, {}),
+    )
+    setPresent(merged)
+  }, [item.common, item.general, item.kuji, item.ouen, item.shoutai, item.vip])
+
+  return (
+    <div className='bg-amber-100'>
+      <Container maxWidth='md' className=''>
+        <Heading tag={2} label='Simulator' className='pt-24 pb-8' />
+        <div className='flex gap-6 pb-6'>
+          <LetterPanel title='購入商品'>
+            <p className='leading-4'>購入したチケットの枚数や各種券の枚数を入力してください</p>
+            <div className='flex flex-col gap-4 py-2'>
+              <div className='flex justify-between'>
+                <p>VIPチケット</p>
+                <input
+                  type='number'
+                  min={0}
+                  max={200}
+                  className='spin-erase spin w-20'
+                  onChange={(e) => {
+                    setItem({
+                      ...item,
+                      vip: Number(e.target.value),
+                    })
+                  }}
+                />
+              </div>
+              <div className='flex justify-between'>
+                <p>一般チケット</p>
+                <input
+                  type='number'
+                  min={0}
+                  max={200}
+                  className='spin-erase spin w-20'
+                  onChange={(e) => {
+                    setItem({
+                      ...item,
+                      general: Number(e.target.value),
+                    })
+                  }}
+                />
+              </div>
+              <div className='flex justify-between'>
+                <p>応援チケット</p>
+                <input
+                  type='number'
+                  min={0}
+                  max={200}
+                  className='spin-erase spin w-20'
+                  onChange={(e) => {
+                    setItem({
+                      ...item,
+                      ouen: Number(e.target.value),
+                    })
+                  }}
+                />
+              </div>
+              <div className='flex justify-between'>
+                <p>共通特典券</p>
+                <input
+                  type='number'
+                  min={0}
+                  max={200}
+                  className='spin-erase spin w-20'
+                  onChange={(e) => {
+                    setItem({
+                      ...item,
+                      common: Number(e.target.value),
+                    })
+                  }}
+                />
+              </div>
+              <div className='flex justify-between'>
+                <p>SPARKingくじ</p>
+                <input
+                  type='number'
+                  min={0}
+                  max={200}
+                  className='spin-erase spin w-20'
+                  onChange={(e) => {
+                    setItem({
+                      ...item,
+                      kuji: Number(e.target.value),
+                    })
+                  }}
+                />
+              </div>
+              <div className='flex justify-between'>
+                <p>招待</p>
+                <input
+                  type='number'
+                  min={0}
+                  max={200}
+                  className='spin-erase spin w-20'
+                  onChange={(e) => {
+                    setItem({
+                      ...item,
+                      shoutai: Number(e.target.value),
+                    })
+                  }}
+                />
+              </div>
+            </div>
+          </LetterPanel>
+          <div className='flex flex-col gap-6 w-full'>
+            <LetterPanel title='投票数'>
+              <div className='flex justify-center'>
+                <div className='text-2xl font-bold'>
+                  {voting}
+                  <span className='pl-2'>票</span>
+                </div>
+              </div>
+            </LetterPanel>
+            <LetterPanel title='獲得特典内容'>
+              <div className='flex flex-col gap-2'>
+                {present.map((cont, index) => {
+                  return cont.amount > 0 ? (
+                    <div className='flex justify-between' key={index}>
+                      <div>{cont.title}</div>
+                      <div>{cont.amount} 枚</div>
+                    </div>
+                  ) : (
+                    <></>
+                  )
+                })}
+              </div>
+            </LetterPanel>
+          </div>
         </div>
       </Container>
     </div>
