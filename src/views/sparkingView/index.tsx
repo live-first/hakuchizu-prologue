@@ -9,7 +9,7 @@ import rule1 from '@/image/spark/rule1.jpeg'
 import reg1 from '@/image/spark/reg1.jpeg'
 import reg2 from '@/image/spark/reg2.jpeg'
 import reg3 from '@/image/spark/reg3.jpeg'
-import timetable0304 from '@/image/spark/timetable0304.jpeg'
+import timetable0305 from '@/image/spark/timetable0305.jpg'
 import { Container } from '@mui/material'
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import { IoMdArrowDown } from 'react-icons/io'
@@ -36,7 +36,7 @@ export const SparkingView = () => {
         target='_blank'
         className='fixed z-20 right-4 top-2 bg-fuchsia-400 text-white font-bold italic font-sans px-4 py-2 rounded-full text-3xl'
       >
-        チケットはこちら
+        チケット
       </Link>
       <Header />
       <Caution />
@@ -51,7 +51,7 @@ export const SparkingView = () => {
 
 const Header = () => {
   return (
-    <div className='flex flex-col w-full h-[400px] bg-gradient-original p-2 items-center justify-center'>
+    <div className='flex flex-col w-full h-[500px] bg-gradient-original p-2 items-center justify-center'>
       <Img src={spark_logo.src} alt='SPARKingロゴ' />
       <div className='text-white italic font-bold text-5xl text-shadow'>
         2026<span className='text-3xl'>年</span>3<span className='text-3xl'>月</span>4
@@ -60,12 +60,17 @@ const Header = () => {
       <div className='text-white italic font-bold text-2xl md:text-5xl text-shadow'>
         有楽町ヒューリックホール
       </div>
-      <div className='flex flex-col border-2 border-white p-3 text-white'>
-        <div className='flex text-red-600'>3/4（水）</div>
-        <div className='flex text-red-600'>《特典会》15:30〜16:30 《ライブ》17:20〜17:35</div>
+      <div className='flex flex-col bg-white p-3 shadow mt-2'>
+        <div className='flex text-red-600'>3/5（木）</div>
+        <div className='flex text-red-600'>
+          {' '}
+          《ライブ》16:10〜16:25
+          <br />
+          《特典会》16:45〜17:45
+        </div>
         <div className='flex'>
-          <div className='bg-fuchsia-500 px-1'>投票可能時間</div>
-          <div className='flex text-red-600'>15:30〜17:30</div>
+          <div className='bg-fuchsia-500 px-1 text-white'>投票可能時間</div>
+          <div className='flex text-red-600'>12:30〜17:45</div>
         </div>
       </div>
     </div>
@@ -135,7 +140,7 @@ const Rule = () => {
       <Container maxWidth='md'>
         <Img src={rule1.src} alt='SPARKingルール' />
         <Heading tag={2} label='TIME TABLE' className='pt-24 pb-8' />
-        <Img src={timetable0304.src} alt='SPARKing予選会タイムテーブル' />
+        <Img src={timetable0305.src} alt='タイムテーブル' />
         <Heading tag={2} label='レギュレーション' className='pt-24 pb-8' />
         <div className='flex w-full'>
           <Swiper
