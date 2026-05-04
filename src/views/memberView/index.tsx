@@ -1,10 +1,13 @@
 import SlideUpAnimation from '@/components/animation/slideUpAnimation'
 import { Heading } from '@/components/Heading'
 import { Img } from '@/components/Image'
-import matsuri from '@/image/咲真まつり.png'
-import hikaru from '@/image/佐藤ひかる.png'
-import mio from '@/image/橘みお.png'
-import koko from '@/image/櫻葉ここ.png'
+import matsuri from '@/image/member/咲真まつり.jpg'
+import hikaru from '@/image/member/佐藤ひかる.jpg'
+import mio from '@/image/member/橘みお.jpg'
+import koko from '@/image/member/櫻葉ここ.jpg'
+import aki from '@/image/member/小花あき.jpg'
+import kira from '@/image/member/星乃きら.jpg'
+import sayaka from '@/image/member/清野さやか.jpg'
 import xLogo from '@/image/x-logo.png'
 import ttLogo from '@/image/tiktok-logo.png'
 import instaLogo from '@/image/instagram_logo.png'
@@ -33,7 +36,10 @@ export const MemberView = () => {
                 <Link href='https://x.com/HCPL_hikaru' className='w-1/8'>
                   <Img src={xLogo.src} />
                 </Link>
-                <Link href='https://t.co/l2bwbSqmN2' className='w-1/8'>
+                <Link
+                  href='https://www.tiktok.com/@hcpl_hikaru?_r=1&_t=ZS-9652QuHvl28'
+                  className='w-1/8'
+                >
                   <Img src={ttLogo.src} />
                 </Link>
               </div>
@@ -58,8 +64,17 @@ export const MemberView = () => {
                 <Link href='https://x.com/HCPL_koko' className='w-1/8'>
                   <Img src={xLogo.src} />
                 </Link>
-                <Link href='https://t.co/nnvPBGNes3' className='w-1/8'>
+                <Link
+                  href='https://www.tiktok.com/@hcpl_koko2?_r=1&_t=ZS-9652wtjVxF1'
+                  className='w-1/8'
+                >
                   <Img src={ttLogo.src} />
+                </Link>
+                <Link
+                  href='https://www.instagram.com/hcpl_koko?igsh=Y3JmeDMwanptdGJn&utm_source=qr'
+                  className='w-1/7'
+                >
+                  <Img src={instaLogo.src} />
                 </Link>
               </div>
             </div>
@@ -80,10 +95,16 @@ export const MemberView = () => {
                 <Link href='https://x.com/HCPL_mio' className='w-1/8'>
                   <Img src={xLogo.src} />
                 </Link>
-                <Link href='https://t.co/FcJrEYhZGd' className='w-1/8'>
+                <Link
+                  href='https://www.tiktok.com/@hcpl_mio?_r=1&_t=ZS-9654VHoCgvx'
+                  className='w-1/8'
+                >
                   <Img src={ttLogo.src} />
                 </Link>
-                <Link href='https://t.co/aLBEAGizU6' className='w-1/7'>
+                <Link
+                  href='https://www.instagram.com/hcpl_mio?igsh=MWY2emk0MGtkNWNrZg%3D%3D&utm_source=qr'
+                  className='w-1/7'
+                >
                   <Img src={instaLogo.src} />
                 </Link>
               </div>
@@ -106,7 +127,88 @@ export const MemberView = () => {
                 <Link href='https://x.com/HCPL_matsuri' className='w-1/8'>
                   <Img src={xLogo.src} />
                 </Link>
-                <Link href='https://t.co/AQ3l1jjSHV' className='w-1/8'>
+                <Link
+                  href='https://www.tiktok.com/@hcpl_matsuri?_r=1&_t=ZS-9652cTIj4US'
+                  className='w-1/8'
+                >
+                  <Img src={ttLogo.src} />
+                </Link>
+                <Link
+                  href='https://www.instagram.com/sakumatsu_hcpl?igsh=MWYxbnJsNnc5eDMwYg%3D%3D&utm_source=qr'
+                  className='w-1/7'
+                >
+                  <Img src={instaLogo.src} />
+                </Link>
+              </div>
+            </div>
+          </SlideUpAnimation>
+          <SlideUpAnimation>
+            <div className='flex flex-col p-1 md:p-3 w-full' id='清野さやか'>
+              <Img src={sayaka.src} alt='清野さやか' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>清野さやか</div>
+              <div>
+                <p>生年月日：月日</p>
+                <p>MBTI：ISFP</p>
+                <p>出身地：広島県</p>
+                <p>担当カラー：青</p>
+                <p>血液型:A型</p>
+                <p>特技：たくさん歩くこと</p>
+              </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='https://x.com/HCPL_sayaka' className='w-1/8'>
+                  <Img src={xLogo.src} />
+                </Link>
+                <Link href='https://t.co/' className='w-1/8'>
+                  <Img src={ttLogo.src} />
+                </Link>
+              </div>
+            </div>
+          </SlideUpAnimation>
+          <SlideUpAnimation>
+            <div className='flex flex-col p-1 md:p-3 w-full' id='星乃きら'>
+              <Img src={kira.src} alt='星乃きら' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>星乃きら</div>
+              <div>
+                <p>生年月日：10月28日</p>
+                <p>MBTI：ESFP</p>
+                <p>出身地：兵庫県</p>
+                <p>担当カラー：紫</p>
+                <p>血液型:AB型</p>
+                <p>特技：卵を片手で割ること</p>
+              </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='https://x.com/HCPL_kira' className='w-1/8'>
+                  <Img src={xLogo.src} />
+                </Link>
+                <Link
+                  href='https://www.tiktok.com/@kiratan_1028?_r=1&_t=ZS-9656GOJU2JV'
+                  className='w-1/8'
+                >
+                  <Img src={ttLogo.src} />
+                </Link>
+              </div>
+            </div>
+          </SlideUpAnimation>
+          <SlideUpAnimation>
+            <div className='flex flex-col p-1 md:p-3 w-full' id='小花あき'>
+              <Img src={aki.src} alt='小花あき' cName='duration-700 hover:scale-105' />
+              <div className='pt-6 pb-2 text-2xl font-bold'>小花あき</div>
+              <div>
+                <p>生年月日：3月21日</p>
+                <p>MBTI：INFJ</p>
+                <p>出身地：島根県</p>
+                <p>担当カラー：水色</p>
+                <p>血液型:A型</p>
+                <p>特技：たこ焼きを焼くこと、ダンスを反転で踊ること</p>
+              </div>
+              <div className='flex justify-center gap-8 pt-2'>
+                <Link href='https://x.com/HCPL_aki' className='w-1/8'>
+                  <Img src={xLogo.src} />
+                </Link>
+                <Link
+                  href='https://www.tiktok.com/@kohana_aki3?_r=1&_t=ZS-9656hXxE2XX'
+                  className='w-1/8'
+                >
                   <Img src={ttLogo.src} />
                 </Link>
               </div>

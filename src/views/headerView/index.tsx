@@ -60,7 +60,7 @@ export const HeaderView = ({ url }: { url?: string }) => {
         <div className='flex rounded-l-full'>
           <HeaderPcCell label='HOME' url='/' active={url === 'home'} />
           <span className='border-r border-white' />
-          <HeaderPcCell label='PROFILE' url='/profile' active={url === 'group-profile'} />
+          <HeaderPcCell label='PROFILE' url='/profile' active={url === 'profile'} />
           <span className='border-r border-white' />
           <HeaderPcCell label='MEMBER' url='/member' active={url === 'member'} />
           <span className='border-r border-white' />

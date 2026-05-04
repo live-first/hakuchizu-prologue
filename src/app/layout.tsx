@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import './globals.css'
 import Provider from './Provider'
 
 export const metadata: Metadata = {
   title: '白地図プロローグ',
-  description: 'アイドルグループ「白地図プロローグ」の公式サイトです。「完成された物語」ではなく、「始まり続ける物語」を届けるために。',
+  description:
+    'アイドルグループ「白地図プロローグ」の公式サイトです。「完成された物語」ではなく、「始まり続ける物語」を届けるために。',
   metadataBase: new URL('https://hakuchizu-prologue.com'),
   openGraph: {
     title: '白地図プロローグ',
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
   return (
     <html>

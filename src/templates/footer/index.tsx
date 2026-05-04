@@ -8,10 +8,10 @@ type FooterProps = {
 export const Footer = (props: PropsWithChildren<FooterProps>) => {
   const { bottom, copyright, children } = props
   return (
-    <div className='flex flex-col relative'>
+    <div className='flex flex-col relative bg-secondary'>
       {children}
       {bottom}
-      <div className='flex pt-4 pb-1 w-full justify-center'>{copyright}</div>
+      <div className='flex pt-4 pb-1 w-full justify-center text-white'>{copyright}</div>
     </div>
   )
 }
