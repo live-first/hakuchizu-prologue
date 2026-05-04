@@ -3,10 +3,13 @@
 import { Heading } from '@/components/Heading'
 import { NewsList } from '@/templates/newsList'
 import Link from 'next/link'
-import matsuri from '@/image/咲真まつり.png'
-import hikaru from '@/image/佐藤ひかる.png'
-import mio from '@/image/橘みお.png'
-import koko from '@/image/櫻葉ここ.png'
+import matsuri from '@/image/member/咲真まつり.jpg'
+import hikaru from '@/image/member/佐藤ひかる.jpg'
+import mio from '@/image/member/橘みお.jpg'
+import koko from '@/image/member/櫻葉ここ.jpg'
+import aki from '@/image/member/小花あき.jpg'
+import kira from '@/image/member/星乃きら.jpg'
+import sayaka from '@/image/member/清野さやか.jpg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -19,7 +22,6 @@ import { NewsContentsType } from '@/domain/news'
 import x_logo from '@/image/X.svg'
 import tiktok_logo from '@/image/TikTok.svg'
 import youtube_logo from '@/image/Youtube.png'
-import './style.css'
 import { FaQuestion } from 'react-icons/fa'
 import { FaCartShopping } from 'react-icons/fa6'
 import SlideUpAnimation from '@/components/animation/slideUpAnimation'
@@ -41,7 +43,7 @@ export const HomeView = () => {
 
   const ViewAllButton = ({ href }: { href: string }) => (
     <Link href={href}>
-      <span className='flex px-20 py-4 mt-8 border bg-[#e5f5ff] border-blue-400 hover:bg-white'>
+      <span className='flex px-20 py-4 mt-8 border text-white bg-secondary border-secondary hover:bg-white hover:text-secondary'>
         VIEW All
       </span>
     </Link>
@@ -87,15 +89,15 @@ export const HomeView = () => {
                 spaceBetween: 30,
               },
               992: {
-                slidesPerView: 2.2,
-                spaceBetween: 30,
-              },
-              1600: {
                 slidesPerView: 3.3,
                 spaceBetween: 30,
               },
+              1600: {
+                slidesPerView: 5,
+                spaceBetween: 30,
+              },
               1800: {
-                slidesPerView: 4.3,
+                slidesPerView: 6.3,
                 spaceBetween: 30,
               },
             }}
@@ -118,6 +120,21 @@ export const HomeView = () => {
             <SwiperSlide>
               <Link href='/member#咲真まつり'>
                 <Img src={matsuri.src} alt='咲真まつり' />
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Link href='/member#小花あき'>
+                <Img src={aki.src} alt='小花あき' />
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Link href='/member#清野さやか'>
+                <Img src={sayaka.src} alt='清野さやか' />
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Link href='/member#星乃きら'>
+                <Img src={kira.src} alt='星乃きら' />
               </Link>
             </SwiperSlide>
           </Swiper>
@@ -145,9 +162,9 @@ export const HomeView = () => {
           </div>
         </div>
       </Section>
-      <div className='flex flex-col py-32 gap-32 bg-blue-gradient'>
+      <div className='flex flex-col py-32 gap-32 bg-secondary'>
         <Section>
-          <Heading tag={2} label='SNS' />
+          <Heading tag={2} label='SNS' className='text-white' />
           <Container maxWidth='sm'>
             <div className='flex justify-center content-center gap-12 items-center'>
               <Link href='https://x.com/HCPL_official' className='w-1/6'>
@@ -169,13 +186,13 @@ export const HomeView = () => {
           </Container>
         </Section>
         <Section>
-          <Heading tag={2} label='CONTACT' />
-          <div className='flex flex-col gap-4 text-center pt-4'>
+          <Heading tag={2} label='CONTACT' className='text-white' />
+          <div className='flex flex-col gap-4 text-center pt-4 text-white'>
             <p>イベント出演のお誘い / 取材 / 仕事依頼 /</p>
             <p>その他のお問い合わせは下記までお願いします。</p>
           </div>
           <Link href='/contact'>
-            <span className='flex px-20 py-4 mt-8 border bg-[#e5f5ff] border-blue-400 hover:bg-white'>
+            <span className='flex px-20 py-4 mt-8 border bg-primary hover:bg-white'>
               お問い合わせはこちら
             </span>
           </Link>
