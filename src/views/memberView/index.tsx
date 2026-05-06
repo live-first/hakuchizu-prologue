@@ -147,7 +147,7 @@ export const MemberView = () => {
               <Img src={sayaka.src} alt='清野さやか' cName='duration-700 hover:scale-105' />
               <div className='pt-6 pb-2 text-2xl font-bold'>清野さやか</div>
               <div>
-                <p>生年月日：月日</p>
+                <p>生年月日：2月9日</p>
                 <p>MBTI：ISFP</p>
                 <p>出身地：広島県</p>
                 <p>担当カラー：青</p>
