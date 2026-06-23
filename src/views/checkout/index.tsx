@@ -22,7 +22,7 @@ import { FaShieldAlt } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!)
+const stripePromise = loadStripe('pk_test_51L2xnnFRuEcVJcvhQSsx9Iaf9ZcpHBdbfUmIkpklEzIlOgp6TPU1NoY10A6mzd7j1ti70SCDqTLOLye7onkKOFDl00CiaFmLbt')
 
 const ADDRESS_OPTIONS = {
   mode: 'shipping' as const,
