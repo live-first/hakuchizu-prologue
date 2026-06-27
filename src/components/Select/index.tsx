@@ -32,7 +32,7 @@ export const Select = (props: SelectProps) => {
         onChange={onChange}
         disabled={disabled}
       >
-        <option value={0}>選択してください</option>
+        <option value={'0'}>選択してください</option>
         {options.map((option, index) => (
           <option value={option.value} key={index}>
             {option.label}

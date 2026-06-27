@@ -47,11 +47,15 @@ export const ReturnView = () => {
 
       const index = list.findIndex((item) => item.id === id)
 
+      console.log(count)
+
       // ▼ count が "0" の場合 → リストから削除
       if (count === '0') {
+        console.log(count, index)
         if (index !== -1) {
           list.splice(index, 1) // ← 削除
         }
+        store.setItem(list)
         return list
       }
 
