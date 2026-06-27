@@ -1,7 +1,14 @@
 import { SingleViewLayout } from '@/layouts/SingleViewLayout'
-import { Header } from '@/views/header'
+import { FooterView } from '@/views/footerView'
+import { HeaderView } from '@/views/headerView'
 import { SuccessView } from '@/views/success'
 
 export default function Success() {
-  return <SingleViewLayout header={<Header />} allView={<SuccessView />} />
+  return (
+    <SingleViewLayout
+      header={<HeaderView url='shop' />}
+      allView={<SuccessView />}
+      footer={<FooterView />}
+    />
+  )
 }

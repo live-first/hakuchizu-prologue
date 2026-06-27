@@ -17,12 +17,11 @@ import { TextAreaForm } from '@/templates/form/TextAreaForm'
 import { Button } from '@/components/Button'
 import { Modal } from '@/components/Modal'
 import { useCheckoutPresenter } from '@/presenter/checkoutPreseter'
-import { useCloudFundApi } from '@/api/cloudApi'
 import { FaShieldAlt } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const stripePromise = loadStripe('pk_test_51L2xnnFRuEcVJcvhQSsx9Iaf9ZcpHBdbfUmIkpklEzIlOgp6TPU1NoY10A6mzd7j1ti70SCDqTLOLye7onkKOFDl00CiaFmLbt')
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!)
 
 const ADDRESS_OPTIONS = {
   mode: 'shipping' as const,
@@ -32,15 +31,20 @@ const ADDRESS_OPTIONS = {
 export const CheckoutView = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null)
   const stored = useStore('return-items').getItem()
+  const deliveryStored = useStore('other-items').getItem()
   const router = useRouter()
 
   useEffect(() => {
     const items = stored ? (JSON.parse(stored) as ItemContent[]) : []
+    const other = deliveryStored
+      ? (JSON.parse(deliveryStored) as { isDelivery: boolean })
+      : { isDelivery: true }
 
+    const deliveryAmount = other.isDelivery ? 1000 : 0
     const amount =
       items?.reduce((sum, item) => {
-        return sum + item.amount * Number(item.count)
-      }, 0) ?? 0
+        return sum + item.amount * Number(item.count) + deliveryAmount
+      }, 0) ?? 0 + deliveryAmount
 
     fetch('/api/create-payment-intent', {
       method: 'POST',
@@ -49,7 +53,7 @@ export const CheckoutView = () => {
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret))
-  }, [stored])
+  }, [stored, deliveryStored])
 
   // optionsオブジェクトをメモ化
   const options = useMemo(() => {
@@ -98,8 +102,8 @@ export const CheckoutView = () => {
   return (
     <Elements stripe={stripePromise} options={options}>
       <div className='pb-24 pt-8 px-4 max-w-3xl mx-auto'>
-        <h2 className='text-3xl font-bold text-center text-pink-500 mb-8 drop-shadow-sm'>
-          ご支援の手続き
+        <h2 className='text-3xl font-bold text-center text-secondary mb-8 drop-shadow-sm'>
+          ご購入の手続き
         </h2>
 
         <div className='grid gap-8 md:grid-cols-2'>
@@ -111,7 +115,7 @@ export const CheckoutView = () => {
               <button
                 className='text-gray-500 hover:text-gray-700 underline text-sm w-full text-center transition-colors'
                 onClick={() => {
-                  window.location.href = '/'
+                  router.back()
                 }}
               >
                 ← もどる
@@ -130,21 +134,26 @@ export const CheckoutView = () => {
 
 const SummaryPanel = () => {
   const stored = useStore('return-items').getItem()
+  const deliveryStored = useStore('other-items').getItem()
 
   if (!stored) {
     return <div className='text-gray-500 text-center'>カートは空です</div>
   }
   const items = JSON.parse(stored) as ItemContent[]
+  const other = deliveryStored
+    ? (JSON.parse(deliveryStored) as { isDelivery: boolean })
+    : { isDelivery: true }
 
+  const deliveryAmount = other.isDelivery ? 1000 : 0
   const totalAmount =
     items?.reduce((sum, item) => {
-      return sum + item.amount * Number(item.count)
-    }, 0) ?? 0
+      return sum + item.amount * Number(item.count) + deliveryAmount
+    }, 0) ?? 0 + deliveryAmount
 
   return (
     <div className='bg-blue-50 p-6 rounded-3xl shadow-md border border-blue-100 sticky top-24'>
       <h3 className='text-xl font-bold text-blue-400 mb-4 flex items-center gap-2'>
-        <span className='text-2xl'>🛒</span> 選択したリターン
+        <span className='text-2xl'>🛒</span> 選択した商品
       </h3>
       <div className='flex flex-col gap-4 mb-6'>
         {items.map((item, index) => {
@@ -155,19 +164,28 @@ const SummaryPanel = () => {
               className='flex justify-between items-start border-b border-blue-200 pb-2 last:border-0'
             >
               <div className='flex flex-col'>
-                <p className='font-bold text-gray-700 text-sm'>{data.title || 'リターン'}</p>
+                <p className='font-bold text-gray-700 text-sm'>{data.title || '商品名'}</p>
                 <p className='text-xs text-gray-500'>数量: {item.count}</p>
               </div>
               <p className='font-bold text-blue-500 whitespace-nowrap'>
-                {(data.amount * Number(item.count)).toLocaleString()}{' '}
-                <span className='text-xs'>円</span>
+                {data.amount.toLocaleString()} <span className='text-xs'>円</span>
               </p>
             </div>
           )
         })}
+        {deliveryAmount > 0 && (
+          <div className='flex justify-between items-start border-b border-blue-200 pb-2 last:border-0'>
+            <div className='flex flex-col'>
+              <p className='font-bold text-gray-700 text-sm'>配送料</p>
+            </div>
+            <p className='font-bold text-blue-500 whitespace-nowrap'>
+              1,000 <span className='text-xs'>円</span>
+            </p>
+          </div>
+        )}
       </div>
       <div className='flex justify-between items-end border-t-2 border-dashed border-blue-200 pt-4'>
-        <p className='font-bold text-gray-600'>合計ご支援額</p>
+        <p className='font-bold text-gray-600'>合計金額</p>
         <p className='text-3xl font-bold text-pink-500'>
           {totalAmount.toLocaleString()} <span className='text-lg text-gray-400'>円</span>
         </p>
@@ -179,7 +197,6 @@ const SummaryPanel = () => {
 const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
-  const { addFund } = useCloudFundApi()
   const router = useRouter()
   const [open, setOpen] = useState<boolean>(false)
 
@@ -228,11 +245,6 @@ const CheckoutForm = () => {
       }
 
       if (paymentIntent!.status == 'succeeded') {
-        try {
-          await addFund.mutateAsync(data)
-        } catch (e) {
-          console.error(e)
-        }
         await sendEmail(data).then(() => {
           setSending(false)
           router.push('/success')
@@ -263,9 +275,9 @@ const CheckoutForm = () => {
           type='email'
         />
         <TextAreaForm
-          title='応援メッセージ'
+          title='コメント等'
           required
-          description='来桜へのメッセージをお願いします！'
+          description=''
           register={register('content')}
           error={errors.content?.message}
         />
@@ -297,7 +309,7 @@ const CheckoutForm = () => {
             ) : (
               <div className='flex'>
                 <FaShieldAlt style={{ transform: 'translateY(2px)', marginRight: '6px' }} />
-                決済を確定して支援する
+                決済を確定して購入する
               </div>
             )
           }
@@ -331,7 +343,7 @@ const LodingModal = () => {
         <p className='font-bold text-xl'>決済処理中</p>
         <p>画面を閉じないでください</p>
         <p>
-          銀行振込の方はメールを確認し、振込を完了させてください。<Link href='/'>閉じる</Link>
+          銀行振込の方はメールを確認し、振込を完了させてください。<Link href='/shop'>閉じる</Link>
         </p>
       </div>
     </div>

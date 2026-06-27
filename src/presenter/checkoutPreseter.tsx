@@ -41,12 +41,12 @@ export const useCheckoutPresenter = () => {
       name: name,
       email: email,
       content: content,
-      product1: items.find((item) => item.id === '1')?.count.toString() ?? '0',
-      product2: items.find((item) => item.id === '2')?.count.toString() ?? '0',
-      product3: items.find((item) => item.id === '3')?.count.toString() ?? '0',
-      product4: items.find((item) => item.id === '4')?.count.toString() ?? '0',
-      product5: items.find((item) => item.id === '5')?.count.toString() ?? '0',
-      product6: items.find((item) => item.id === '6')?.count.toString() ?? '0',
+      product1: items[0] ? `${items[0].title} | ${items[0]?.count.toString()}個` : '',
+      product2: items[1] ? `${items[1].title} | ${items[1]?.count.toString()}個` : '',
+      product3: items[2] ? `${items[2].title} | ${items[2]?.count.toString()}個` : '',
+      product4: items[3] ? `${items[3].title} | ${items[3]?.count.toString()}個` : '',
+      product5: items[4] ? `${items[4].title} | ${items[4]?.count.toString()}個` : '',
+      product6: items[5] ? `${items[5].title} | ${items[5]?.count.toString()}個` : '',
     }
   }
 

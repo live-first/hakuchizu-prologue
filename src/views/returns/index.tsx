@@ -1,18 +1,16 @@
 'use client'
 
-import { Img } from '@/components/Image'
-import { Modal } from '@/components/Modal'
 import { Options, Select } from '@/components/Select'
+import { cn } from '@/components/utils'
 import { returnItems, ReturnItemType } from '@/data/items/returnItems'
 import { useHomePresenter } from '@/presenter/homePresenter'
 import { useStore } from '@/store/useStore'
 import { useRouter } from 'next/navigation'
 import { ChangeEventHandler, useEffect, useState } from 'react'
-import { FaUser } from 'react-icons/fa'
-import { GiPresent } from 'react-icons/gi'
 
 export type ItemContent = {
   id: string
+  title: string
   amount: number
   count: string //いくつか
 }
@@ -20,10 +18,17 @@ export type ItemContent = {
 export const ReturnView = () => {
   const [items, setItems] = useState<ItemContent[]>()
   const [show, setShow] = useState<boolean>(false)
+  const [checked, setCheck] = useState<boolean>(true)
   // const [total, setTotal] = useState<number>(0)
   const router = useRouter()
   const store = useStore('return-items')
+  const deliveryStore = useStore('other-items')
   const { res, isBeforeStart, isClosedProject } = useHomePresenter()
+
+  useEffect(() => {
+    deliveryStore.setItem({ isDelivery: true })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     setShow(items ? items.length !== 0 : false)
@@ -35,7 +40,8 @@ export const ReturnView = () => {
     // setTotal(totalAmount)
   }, [items, items?.length])
 
-  const onChangeHandler = (id: string, count: string, amount: number) => {
+  const onChangeHandler = (props: ReturnItemType) => {
+    const { id, title, count, amount } = props
     setItems((prev) => {
       const list = prev ? [...prev] : []
 
@@ -51,7 +57,7 @@ export const ReturnView = () => {
 
       // ▼ それ以外は追加 or 更新
       if (index === -1) {
-        list.push({ id, amount, count })
+        list.push({ id, title, amount, count })
       } else {
         list[index] = {
           ...list[index],
@@ -63,6 +69,11 @@ export const ReturnView = () => {
 
       return list
     })
+  }
+
+  const onCheckClick = () => {
+    setCheck(!checked)
+    deliveryStore.setItem({ isDelivery: !checked })
   }
 
   const onClickHandler = () => {
@@ -87,16 +98,30 @@ export const ReturnView = () => {
               supporterCount={res?.find((r) => r.id === item.id)?.supporterCount}
               maxCount={item.maxCount}
               onChange={(e) => {
-                onChangeHandler(item.id, e.target.value, item.amount)
+                onChangeHandler({ ...item, count: e.target.value })
               }}
               disabled={isBeforeStart || isClosedProject}
+              count=''
             />
           )
         })}
       </div>
+      <div className='w-full px-2'>
+        <button
+          className={cn(
+            'flex gap-2 border border-secondary rounded-lg w-full p-4 font-bold',
+            checked ? 'bg-secondary text-white' : 'bg-white hover:bg-secondary hover:text-white',
+          )}
+          onClick={() => onCheckClick()}
+        >
+          <input type='checkbox' checked={checked} />
+          配送料(1,000円)
+        </button>
+      </div>
+
       {show && (
         <button
-          className='fixed bottom-6 w-11/12 md:w-8/12 px-4 md:px-12 bg-secondary  shadow-xl shadow-cyan-100 rounded-full h-[80px] flex justify-center items-center text-white transition-all duration-300 transform hover:scale-105 z-50'
+          className='fixed bottom-6 w-11/12 md:w-8/12 px-4 md:px-12 bg-secondary border border-white rounded-full h-[80px] flex justify-center items-center text-white transition-all duration-300 transform hover:scale-105 z-50'
           onClick={onClickHandler}
         >
           <p className='text-xl md:text-3xl font-bold whitespace-nowrap'>購入する</p>
@@ -114,8 +139,7 @@ type ItemProps = {
 } & ReturnItemType
 
 const ItemPanel = (props: ItemProps) => {
-  const { id, title, detail, date, maxCount, onChange, disabled } =
-    props
+  const { id, title, detail, date, maxCount, onChange, disabled } = props
 
   return (
     <div className='flex flex-col gap-2 bg-white w-full rounded-3xl p-6 shadow-lg border border-secondary hover:shadow-2xl transition-shadow'>
