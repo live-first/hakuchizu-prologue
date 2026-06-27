@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
+import { Suspense, type ReactNode } from 'react'
 import './globals.css'
 import Provider from './Provider'
 
@@ -40,7 +40,9 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <Provider>{children}</Provider>
+        <Suspense>
+          <Provider>{children}</Provider>
+        </Suspense>
       </body>
     </html>
   )
