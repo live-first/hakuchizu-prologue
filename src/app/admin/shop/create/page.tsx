@@ -10,23 +10,13 @@ import { LeftMenuView } from '@/views/leftMenu'
 export default function Dashboard() {
   const { getItem, removeItem } = useStore('user')
   const router = useRouter()
-  let bucketName = ''
-  try {
-    const parsedValue = JSON.parse(getItem() ?? '')
-
-    if (parsedValue && typeof parsedValue === 'object' && 'bucketName' in parsedValue) {
-      bucketName = parsedValue.bucketName
-    }
-  } catch {
-    router.push('/admin/login')
-    return
-  }
 
   useEffect(() => {
     if (!getItem()) {
       router.push('/admin/login')
       return
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const logout = () => {
