@@ -23,7 +23,7 @@ export const ReturnView = () => {
   const router = useRouter()
   const store = useStore('return-items')
   const deliveryStore = useStore('other-items')
-  const { res, isBeforeStart, isClosedProject } = useHomePresenter()
+  const { isBeforeStart, isClosedProject } = useHomePresenter()
 
   useEffect(() => {
     deliveryStore.setItem({ isDelivery: true })
@@ -99,7 +99,6 @@ export const ReturnView = () => {
               title={item.title}
               detail={item.detail}
               date={item.date}
-              supporterCount={res?.find((r) => r.id === item.id)?.supporterCount}
               maxCount={item.maxCount}
               onChange={(e) => {
                 onChangeHandler({ ...item, count: e.target.value })
