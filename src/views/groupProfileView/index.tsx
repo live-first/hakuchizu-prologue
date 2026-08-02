@@ -7,7 +7,7 @@ import { Timeline } from '@/components/ui/timeline'
 export const GroupProfileView = () => {
   const data = [
     {
-      title: '2025.2.1',
+      title: '2026.2.1',
       content: (
         <div>
           <p className='mb-8 text-xl font-bold text-secondary'>プレデビュー</p>
@@ -16,7 +16,7 @@ export const GroupProfileView = () => {
       ),
     },
     {
-      title: '2025.3.5',
+      title: '2026.3.5',
       content: (
         <div>
           <p className='mb-8 text-xl font-bold text-secondary'>SPARKing 優勝</p>
@@ -25,7 +25,7 @@ export const GroupProfileView = () => {
       ),
     },
     {
-      title: '2025.5.3',
+      title: '2026.5.3',
       content: (
         <div>
           <p className='mb-8 text-xl font-bold text-secondary'>IDOL SUMMER JUNGLE GOLDEN出演</p>
@@ -34,11 +34,22 @@ export const GroupProfileView = () => {
       ),
     },
     {
-      title: '2025.5.19',
+      title: '2026.5.19',
       content: (
         <div>
           <p className='mb-8 text-xl font-bold text-secondary'>デビュー</p>
           <div className='py-4'>ViBlue EBISUにて、メンバー７人でデビュー単独ワンマン</div>
+        </div>
+      ),
+    },
+    {
+      title: '2026.7.18-19',
+      content: (
+        <div>
+          <p className='mb-8 text-xl font-bold text-secondary'>
+            SEKIGAHARA IDOL WARS 2026 -関ケ原歌姫合戦- 出陣
+          </p>
+          <div className='py-4'>大型夏フェス　「SEKIGAHARA IDOL WARS 2026」に出演!</div>
         </div>
       ),
     },
@@ -52,13 +63,13 @@ export const GroupProfileView = () => {
     <div className='flex flex-col gap-12 pt-8 justify-center pb-40 px-1 md:px-6'>
       <div className='mx-auto max-w-3xl px-4'>
         <Img src={topImage.src} alt='白地図プロローグ' />
-        <Section>
-          <Heading tag={2} label='白地図プロローグ' />
-          <div>
-            <Timeline data={data} />
-          </div>
-        </Section>
       </div>
+      <Section>
+        <Heading tag={2} label='白地図プロローグ' />
+        <div>
+          <Timeline data={data} />
+        </div>
+      </Section>
     </div>
   )
 }

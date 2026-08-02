@@ -146,18 +146,18 @@ export const HomeView = () => {
         <div className='flex flex-col'>
           <div className='grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6'>
             <Link
-              href='/shop'
+              href='https://hcpl.official.ec/'
               className='flex flex-col items-center text-white bg-secondary w-full rounded-2xl p-4'
             >
               <FaCartShopping className='text-lg' />
-              <label className='text-sm'>ショップ</label>
+              <label className='text-sm hover:cursor-pointer'>ショップ</label>
             </Link>
             <Link
               href='/faq'
               className='flex flex-col items-center text-white bg-secondary w-full rounded-2xl p-4'
             >
               <FaQuestion className='text-lg' />
-              <label className='text-sm'>よくある質問</label>
+              <label className='text-sm hover:cursor-pointer'>よくある質問</label>
             </Link>
           </div>
         </div>

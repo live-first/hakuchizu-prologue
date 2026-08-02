@@ -6,7 +6,7 @@ import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import { IoMdArrowDown } from 'react-icons/io'
 import sales from '@/image/sales.jpg'
 import pic from '@/image/photo_reguration.jpg'
-import new_customer from '@/image/new_customer.jpg'
+import point_card from '@/image/point_card.jpg'
 import howTo from '@/image/howTo.jpeg'
 
 export const FaqView = () => {
@@ -85,7 +85,7 @@ export const FaqView = () => {
               alt='物販レギュレーション'
             />
             <Img
-              src={new_customer.src}
+              src={point_card.src}
               alt='新規特典など'
             />
           </AccordionDetails>
