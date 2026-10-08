@@ -18,12 +18,12 @@ export type ItemContent = {
 export const ReturnView = () => {
   const [items, setItems] = useState<ItemContent[]>()
   const [show, setShow] = useState<boolean>(false)
-  const [checked, setCheck] = useState<boolean>(true)
+  const [checked, setCheck] = useState<boolean>(false)
   // const [total, setTotal] = useState<number>(0)
   const router = useRouter()
   const store = useStore('return-items')
   const deliveryStore = useStore('other-items')
-  const { isBeforeStart, isClosedProject } = useHomePresenter()
+  const { isBeforeStart, isClosedProject, res } = useHomePresenter()
 
   useEffect(() => {
     deliveryStore.setItem({ isDelivery: true })
@@ -86,8 +86,8 @@ export const ReturnView = () => {
 
   return (
     <div className='flex flex-col pt-12 mb-24 pb-24 items-center gap-12'>
-      <h2 id='return' className='font-bold text-3xl text-yellow-500 drop-shadow-sm scroll-mt-24'>
-        咲真まつり生誕祭『世界１おまつりさわぎな成人式』
+      <h2 id='return' className='font-bold text-3xl text-red-500 drop-shadow-sm scroll-mt-24'>
+        佐藤ひかる生誕祭 - ひかる大明神 御生誕祭 -
       </h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
         {returnItems.map((item, index) => {
@@ -104,7 +104,7 @@ export const ReturnView = () => {
                 onChangeHandler({ ...item, count: e.target.value })
               }}
               disabled={isBeforeStart || isClosedProject}
-              count=''
+              count={res?.find((resItem) => resItem.id === item.id)?.count.toString() ?? '0'}
             />
           )
         })}
@@ -142,7 +142,7 @@ type ItemProps = {
 } & ReturnItemType
 
 const ItemPanel = (props: ItemProps) => {
-  const { id, title, detail, date, maxCount, onChange, disabled } = props
+  const { id, title, detail, date, maxCount, onChange, disabled, count } = props
 
   return (
     <div className='flex flex-col gap-2 bg-white w-full rounded-3xl p-6 shadow-lg border border-secondary hover:shadow-2xl transition-shadow'>
@@ -156,6 +156,9 @@ const ItemPanel = (props: ItemProps) => {
 
       <div className='flex flex-col pt-2 gap-1'>
         <p className='flex text-sm text-gray-400'>{date}</p>
+      </div>
+      <div className='flex flex-col pt-2 gap-1'>
+        <p className='flex text-sm text-gray-400'>購入数：{count}</p>
       </div>
       <div className='mt-auto pt-4'>
         <Select

@@ -14,7 +14,7 @@ export const useCheckoutPresenter = () => {
     init('IdTWr2VgMdRiCW1AG')
     if (!notice) {
       setNotice(true)
-      await send('service_cloudfunding', 'cloud-fund-notification', data)
+      await send('service_livefirst', 'cloud-fund-notification', data)
     }
   }
 
@@ -22,7 +22,7 @@ export const useCheckoutPresenter = () => {
     init('IdTWr2VgMdRiCW1AG')
     if (!sending) {
       setSending(true)
-      await send('service_cloudfunding', 'cloud-fund-rara', data)
+      await send('service_livefirst', 'hcpl_goods', data)
     }
   }
 
@@ -41,12 +41,7 @@ export const useCheckoutPresenter = () => {
       name: name,
       email: email,
       content: content,
-      product1: items[0] ? `${items[0].title} | ${items[0]?.count.toString()}個` : '',
-      product2: items[1] ? `${items[1].title} | ${items[1]?.count.toString()}個` : '',
-      product3: items[2] ? `${items[2].title} | ${items[2]?.count.toString()}個` : '',
-      product4: items[3] ? `${items[3].title} | ${items[3]?.count.toString()}個` : '',
-      product5: items[4] ? `${items[4].title} | ${items[4]?.count.toString()}個` : '',
-      product6: items[5] ? `${items[5].title} | ${items[5]?.count.toString()}個` : '',
+      product: items[0] ? items[0]?.count.toString() : '0',
     }
   }
 

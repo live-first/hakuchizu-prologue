@@ -20,6 +20,7 @@ import { useCheckoutPresenter } from '@/presenter/checkoutPreseter'
 import { FaShieldAlt } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useCloudFundApi } from '@/api/cloudApi'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!)
 
@@ -197,6 +198,7 @@ const SummaryPanel = () => {
 const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
+  const { addFund } = useCloudFundApi()
   const router = useRouter()
   const [open, setOpen] = useState<boolean>(false)
 
@@ -245,6 +247,11 @@ const CheckoutForm = () => {
       }
 
       if (paymentIntent!.status == 'succeeded') {
+        try {
+          await addFund.mutateAsync(data)
+        } catch (e) {
+          console.error(e)
+        }
         await sendEmail(data).then(() => {
           setSending(false)
           router.push('/success')
