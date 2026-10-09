@@ -41,7 +41,9 @@ export const useCheckoutPresenter = () => {
       name: name,
       email: email,
       content: content,
-      product: items[0] ? items[0]?.count.toString() : '0',
+      product1: items[0] ? items[0]?.count.toString() : '0',
+      product2: items[1] ? items[1]?.count.toString() : '0',
+      product3: items[2] ? items[2]?.count.toString() : '0',
     }
   }
 

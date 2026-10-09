@@ -117,7 +117,7 @@ export const ReturnView = () => {
           )}
           onClick={() => onCheckClick()}
         >
-          <input type='checkbox' checked={checked} />
+          <input type='checkbox' checked={checked} readOnly />
           配送料(1,000円)
         </button>
       </div>
