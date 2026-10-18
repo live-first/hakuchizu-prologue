@@ -18,7 +18,7 @@ export type ItemContent = {
 export const ReturnView = () => {
   const [items, setItems] = useState<ItemContent[]>()
   const [show, setShow] = useState<boolean>(false)
-  const [checked, setCheck] = useState<boolean>(false)
+  const [checked, setCheck] = useState<boolean>(true)
   // const [total, setTotal] = useState<number>(0)
   const router = useRouter()
   const store = useStore('return-items')
