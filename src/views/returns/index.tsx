@@ -86,9 +86,6 @@ export const ReturnView = () => {
 
   return (
     <div className='flex flex-col pt-12 mb-24 pb-24 items-center gap-12'>
-      <h2 id='return' className='font-bold text-3xl text-red-500 drop-shadow-sm scroll-mt-24'>
-        佐藤ひかる生誕祭 - ひかる大明神 御生誕祭 -
-      </h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
         {returnItems.map((item, index) => {
           return (
