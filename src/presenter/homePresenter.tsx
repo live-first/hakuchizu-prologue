@@ -11,7 +11,7 @@ export const useHomePresenter = () => {
   // プロジェクト開始日時
   const startDate = new Date(2026, 9, 8, 22, 0, 0)
   // プロジェクト終了日時
-  const endDate = new Date(2026, 9, 20, 23, 59, 0)
+  const endDate = new Date(2026, 11, 1, 23, 59, 0)
   // 現在日時
   const now = new Date()
   // 残り何日
