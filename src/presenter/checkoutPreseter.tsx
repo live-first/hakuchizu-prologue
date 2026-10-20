@@ -44,6 +44,12 @@ export const useCheckoutPresenter = () => {
       product1: items[0] ? items[0]?.count.toString() : '0',
       product2: items[1] ? items[1]?.count.toString() : '0',
       product3: items[2] ? items[2]?.count.toString() : '0',
+      product4: items[3] ? items[3]?.count.toString() : '0',
+      product5: items[4] ? items[4]?.count.toString() : '0',
+      product6: items[5] ? items[5]?.count.toString() : '0',
+      product7: items[6] ? items[6]?.count.toString() : '0',
+      product8: items[7] ? items[7]?.count.toString() : '0',
+      product9: items[8] ? items[8]?.count.toString() : '0',
     }
   }
 
